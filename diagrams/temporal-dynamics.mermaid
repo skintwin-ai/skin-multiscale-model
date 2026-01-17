@@ -1,0 +1,28 @@
+gantt
+    title Temporal Scale Hierarchy τ_{molecular} << τ_{cellular} << τ_{tissue} << τ_{organ}
+    dateFormat X
+    axisFormat %s
+    
+    section Molecular τ_n
+    Receptor Binding           :active, mol1, 0, 1
+    Lipid Flip-Flop           :active, mol2, 1, 10
+    Enzyme Kinetics           :active, mol3, 2, 60
+    Phase Transition          :active, mol4, 10, 300
+    
+    section Cellular τ_n
+    Ca²⁺ Signaling            :active, cel1, 60, 600
+    Keratinocyte Response     :active, cel2, 300, 3600
+    Desmosome Assembly        :active, cel3, 600, 7200
+    Differentiation           :active, cel4, 3600, 21600
+    
+    section Tissue τ_n
+    Stratification            :active, tis1, 7200, 86400
+    Barrier Repair            :active, tis2, 21600, 172800
+    Lamellar Organization     :active, tis3, 43200, 259200
+    TEWL Equilibration        :active, tis4, 86400, 345600
+    
+    section Organ τ_n
+    Epidermal Turnover        :active, org1, 172800, 2419200
+    Microbiome Shift          :active, org2, 345600, 2592000
+    Photoaging Response       :active, org3, 604800, 7776000
+    Seasonal Adaptation       :active, org4, 2592000, 31536000

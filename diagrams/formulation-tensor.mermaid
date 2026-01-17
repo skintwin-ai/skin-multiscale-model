@@ -1,0 +1,70 @@
+graph TD
+    subgraph "Example: Barrier Repair Formulation"
+        FORM[Ξ^{formulation} = 0.03·Ξ^{niacinamide} ⊗ 0.02·Ξ^{ceramide} ⊗ 0.05·Ξ^{glycerin} ⊗ Ξ^{emulsion}]
+    end
+    
+    subgraph "Ξ^{niacinamide} Tensor Components"
+        NIA1[α: NAD+ Precursor State]
+        NIA2[β: Enzyme Activation Field]
+        NIA3[γ: Metabolic Shift Operator]
+        NIA4[Scale: τ_{NAD} ~ 10² s]
+    end
+    
+    subgraph "Ξ^{ceramide} Tensor Components"
+        CER1[α: Lipid Phase State |LCP⟩]
+        CER2[β: Lamellar Integration]
+        CER3[γ: Barrier Assembly]
+        CER4[Scale: τ_{lipid} ~ 10⁴ s]
+    end
+    
+    subgraph "Ξ^{glycerin} Tensor Components"
+        GLY1[α: ∇(a_w) Modulator]
+        GLY2[β: Osmotic Gradient]
+        GLY3[γ: Volume Expansion]
+        GLY4[Scale: τ_{water} ~ 10¹ s]
+    end
+    
+    subgraph "Ξ^{emulsion} Vehicle Matrix"
+        EMU1[Continuous: Aqueous Phase 70%]
+        EMU2[Dispersed: Oil Phase 25%]
+        EMU3[Interface: Surfactant System 5%]
+        EMU4[Rheology: η = 15,000 cP]
+    end
+    
+    subgraph "Coupling Terms c_α"
+        C1[c_{niacinamide} = 0.03 → Optimal NAD+ flux]
+        C2[c_{ceramide} = 0.02 → Phase transition threshold]
+        C3[c_{glycerin} = 0.05 → ∇(a_w) normalization]
+    end
+    
+    subgraph "Penetration Pathways"
+        PEN1[Niacinamide: Ξ^{transcellular}]
+        PEN2[Ceramide: Ξ^{intercellular}]
+        PEN3[Glycerin: Ξ^{aqueous pores}]
+    end
+    
+    FORM --> NIA1
+    FORM --> CER1
+    FORM --> GLY1
+    FORM --> EMU1
+    
+    NIA1 --> NIA2 --> NIA3
+    CER1 --> CER2 --> CER3
+    GLY1 --> GLY2 --> GLY3
+    
+    NIA3 --> PEN1
+    CER3 --> PEN2
+    GLY3 --> PEN3
+    
+    C1 --> NIA1
+    C2 --> CER1
+    C3 --> GLY1
+    
+    EMU1 --> PEN1
+    EMU2 --> PEN2
+    EMU3 --> PEN3
+    
+    style FORM fill:#e1f5fe,stroke:#0277bd,stroke-width:4px
+    style NIA1 fill:#fff3e0,stroke:#e65100
+    style CER1 fill:#f3e5f5,stroke:#6a1b9a
+    style GLY1 fill:#e8f5e9,stroke:#2e7d32

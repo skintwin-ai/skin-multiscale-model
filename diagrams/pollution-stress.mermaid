@@ -1,0 +1,125 @@
+graph TD
+    subgraph "Pollutant Classes δΞ^{pollutant}"
+        PC1[PM2.5/PM10 Particulates]
+        PC2[PAHs: Polycyclic Aromatics]
+        PC3[Heavy Metals: Pb, Cd, Hg]
+        PC4[Ozone O₃]
+        PC5[Cigarette Smoke: 4000+ compounds]
+    end
+    
+    subgraph "Penetration Pathways"
+        PP1[Transcellular: Lipophilic]
+        PP2[Follicular: Deep Penetration]
+        PP3[Surface Adhesion]
+        PP4[ROS Generation Sites]
+        PP5[Barrier Disruption Entry]
+    end
+    
+    subgraph "Oxidative Stress Cascade"
+        OS1[Direct ROS: •OH, O₂⁻, H₂O₂]
+        OS2[Lipid Peroxidation Chain]
+        OS3[Protein Carbonylation]
+        OS4[DNA 8-oxo-dG Formation]
+        OS5[∇(oxidative) Exponential]
+    end
+    
+    subgraph "AhR Activation Pathway"
+        AH1[Aryl Hydrocarbon Receptor]
+        AH2[Nuclear Translocation]
+        AH3[CYP1A1 Induction]
+        AH4[Xenobiotic Metabolism]
+        AH5[Toxic Metabolite Formation]
+    end
+    
+    subgraph "Cellular Stress Response"
+        CS1[Nrf2 Activation]
+        CS2[↑ Antioxidant Enzymes]
+        CS3[Metallothionein Expression]
+        CS4[Heat Shock Proteins]
+        CS5[Inflammatory Mediators]
+    end
+    
+    subgraph "Barrier Disruption Effects"
+        BD1[Tight Junction Degradation]
+        BD2[Lipid Oxidation → |Fluid⟩]
+        BD3[↑ TEWL Progressive]
+        BD4[pH Alkalinization]
+        BD5[Microbiome Dysbiosis]
+    end
+    
+    subgraph "Chronic Accumulation"
+        CA1[Metal Bioaccumulation]
+        CA2[Persistent Inflammation]
+        CA3[Premature Aging Signs]
+        CA4[Hyperpigmentation]
+        CA5[Sensitization Risk ↑]
+    end
+    
+    subgraph "Protective Formulation Strategies"
+        PF1[Antioxidant Complex]
+        PF2[Chelating Agents]
+        PF3[Barrier Reinforcement]
+        PF4[Anti-Pollution Polymers]
+        PF5[Microbiome Support]
+    end
+    
+    subgraph "Detoxification Mechanisms"
+        DM1[Phase I: Oxidation]
+        DM2[Phase II: Conjugation]
+        DM3[Efflux Transporters]
+        DM4[Autophagy Activation]
+        DM5[Exfoliation Enhancement]
+    end
+    
+    PC1 --> PP3
+    PC2 --> PP1
+    PC3 --> PP2
+    PC4 --> PP4
+    PC5 --> PP5
+    
+    PP4 --> OS1
+    PC2 --> AH1
+    OS1 --> OS2
+    OS2 --> OS3
+    OS3 --> OS4
+    OS4 --> OS5
+    
+    AH1 --> AH2
+    AH2 --> AH3
+    AH3 --> AH4
+    AH4 --> AH5
+    
+    OS5 --> CS1
+    CS1 --> CS2
+    PC3 --> CS3
+    OS5 --> CS4
+    AH5 --> CS5
+    
+    CS5 --> BD1
+    OS2 --> BD2
+    BD1 --> BD3
+    PC4 --> BD4
+    BD4 --> BD5
+    
+    PC3 --> CA1
+    CS5 --> CA2
+    OS5 --> CA3
+    AH5 --> CA4
+    BD5 --> CA5
+    
+    PF1 -->|Neutralizes| OS1
+    PF2 -->|Binds| PC3
+    PF3 -->|Prevents| BD1
+    PF4 -->|Blocks| PP3
+    PF5 -->|Restores| BD5
+    
+    AH3 --> DM1
+    DM1 --> DM2
+    DM2 --> DM3
+    CS4 --> DM4
+    DM4 --> DM5
+    
+    style PC1 fill:#9e9e9e,stroke:#424242,stroke-width:3px
+    style OS5 fill:#ff5722,stroke:#d32f2f,stroke-width:2px
+    style CS1 fill:#4caf50,stroke:#2e7d32,stroke-width:2px
+    style PF1 fill:#e1f5fe,stroke:#0277bd,stroke-width:3px

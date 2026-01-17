@@ -1,0 +1,69 @@
+graph TB
+    subgraph "Total System Tensor"
+        TOT[Ξ^{total} = Ξ^{host} ⊕ Ξ^{microbiome} + Ĥ_{interaction}]
+    end
+    
+    subgraph "Host State Ξ^{host}"
+        H1[n̂^{host}_i: Keratinocytes]
+        H2[pH Gradient Field]
+        H3[Antimicrobial Peptides]
+        H4[Sebum Production]
+    end
+    
+    subgraph "Microbiome State Ξ^{microbiome}"
+        M1[n̂^{microbe}_j: S. epidermidis]
+        M2[n̂^{microbe}_k: C. acnes]
+        M3[n̂^{microbe}_l: Malassezia]
+        M4[Quorum Sensing Network]
+    end
+    
+    subgraph "Interaction Terms J_{ij}"
+        J1[J_{kerat-epid}: Commensal Support]
+        J2[J_{sebum-acnes}: Nutrient Exchange]
+        J3[J_{AMP-microbe}: Defense Modulation]
+        J4[J_{pH-community}: Selection Pressure]
+    end
+    
+    subgraph "Metabolite Operators σ̂^{metabolite}_k"
+        MET1[σ̂_{SCFA}: Short Chain Fatty Acids]
+        MET2[σ̂_{ceramidase}: Ceramide Processing]
+        MET3[σ̂_{lactate}: pH Modulation]
+        MET4[σ̂_{bacteriocin}: Competition]
+    end
+    
+    subgraph "Emergent Field Properties"
+        E1[Colonization Resistance]
+        E2[pH Homeostasis]
+        E3[Barrier Enhancement]
+        E4[Immune Education]
+    end
+    
+    H1 --> J1
+    H2 --> J4
+    H3 --> J3
+    H4 --> J2
+    
+    M1 --> J1
+    M2 --> J2
+    M3 --> J2
+    M4 --> J4
+    
+    J1 --> MET1
+    J2 --> MET2
+    J3 --> MET4
+    J4 --> MET3
+    
+    MET1 --> E3
+    MET2 --> E3
+    MET3 --> E2
+    MET4 --> E1
+    
+    E1 --> TOT
+    E2 --> TOT
+    E3 --> TOT
+    E4 --> TOT
+    
+    style TOT fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    style J1 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style MET1 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style E3 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px

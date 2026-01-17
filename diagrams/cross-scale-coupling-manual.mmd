@@ -1,0 +1,176 @@
+graph TB
+    subgraph "CROSS-SCALE COUPLING MECHANISMS"
+        TITLE[Multiscale Information Transfer in Skin]
+    end
+    
+    subgraph "MOLECULAR LEVEL"
+        M1[Receptor Binding]
+        M2[Enzyme Activation]
+        M3[Ion Channel Opening]
+        M4[Protein Conformational Change]
+        M5[Lipid Phase Transition]
+    end
+    
+    subgraph "CELLULAR LEVEL"
+        C1[Signal Transduction]
+        C2[Gene Expression]
+        C3[Metabolic Shift]
+        C4[Cytoskeletal Reorganization]
+        C5[Cell Division/Death]
+    end
+    
+    subgraph "TISSUE LEVEL"
+        T1[Collective Cell Behavior]
+        T2[Mechanical Force Generation]
+        T3[Barrier Function Modulation]
+        T4[Inflammatory Response]
+        T5[Tissue Remodeling]
+    end
+    
+    subgraph "ORGAN LEVEL"
+        O1[Regional Adaptation]
+        O2[Systemic Homeostasis]
+        O3[Environmental Response]
+        O4[Circadian Regulation]
+        O5[Aging Processes]
+    end
+    
+    subgraph "UPWARD COUPLING: Bottom-Up Emergence"
+        UP1[Molecular Aggregation Creates Cellular Function]
+        UP2[Cellular Coordination Creates Tissue Properties]
+        UP3[Tissue Integration Creates Organ Behavior]
+        UP4[Emergent System Properties]
+    end
+    
+    subgraph "DOWNWARD COUPLING: Top-Down Regulation"
+        DOWN1[Organ State Influences Tissue Environment]
+        DOWN2[Tissue Mechanics Affects Cell Behavior]
+        DOWN3[Cellular Context Modulates Molecular Activity]
+        DOWN4[Hierarchical Control Mechanisms]
+    end
+    
+    subgraph "FEEDBACK LOOPS"
+        FB1[Molecular-Cellular Feedback]
+        FB2[Cellular-Tissue Feedback]
+        FB3[Tissue-Organ Feedback]
+        FB4[Multi-scale Homeostatic Control]
+    end
+    
+    subgraph "PERTURBATION PROPAGATION"
+        PERT1[Local Molecular Perturbation]
+        PERT2[Cellular Response Amplification]
+        PERT3[Tissue-wide Propagation]
+        PERT4[System-level Adaptation]
+    end
+    
+    subgraph "COUPLING OPERATORS"
+        OP1[Molecular-to-Cellular Transform]
+        OP2[Cellular-to-Tissue Transform]
+        OP3[Tissue-to-Organ Transform]
+        OP4[Cross-scale Commutators]
+    end
+    
+    %% Upward coupling connections
+    M1 --> UP1
+    M2 --> UP1
+    UP1 --> C1
+    UP1 --> C2
+    
+    C1 --> UP2
+    C2 --> UP2
+    UP2 --> T1
+    UP2 --> T2
+    
+    T1 --> UP3
+    T2 --> UP3
+    UP3 --> O1
+    UP3 --> O2
+    
+    UP1 --> UP4
+    UP2 --> UP4
+    UP3 --> UP4
+    
+    %% Downward coupling connections
+    O1 --> DOWN1
+    O2 --> DOWN1
+    DOWN1 --> T3
+    DOWN1 --> T4
+    
+    T3 --> DOWN2
+    T4 --> DOWN2
+    DOWN2 --> C3
+    DOWN2 --> C4
+    
+    C3 --> DOWN3
+    C4 --> DOWN3
+    DOWN3 --> M3
+    DOWN3 --> M4
+    
+    DOWN1 --> DOWN4
+    DOWN2 --> DOWN4
+    DOWN3 --> DOWN4
+    
+    %% Feedback loops
+    M1 --> FB1
+    C1 --> FB1
+    FB1 --> M2
+    FB1 --> C2
+    
+    C2 --> FB2
+    T1 --> FB2
+    FB2 --> C3
+    FB2 --> T2
+    
+    T2 --> FB3
+    O1 --> FB3
+    FB3 --> T3
+    FB3 --> O2
+    
+    FB1 --> FB4
+    FB2 --> FB4
+    FB3 --> FB4
+    FB4 --> O4
+    
+    %% Perturbation propagation
+    PERT1 --> M5
+    M5 --> PERT2
+    PERT2 --> C5
+    C5 --> PERT3
+    PERT3 --> T5
+    T5 --> PERT4
+    PERT4 --> O5
+    
+    %% Coupling operators
+    M1 --> OP1
+    OP1 --> C1
+    C1 --> OP2
+    OP2 --> T1
+    T1 --> OP3
+    OP3 --> O1
+    
+    OP1 --> OP4
+    OP2 --> OP4
+    OP3 --> OP4
+    OP4 --> FB4
+    
+    %% Styling
+    classDef molecular fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef cellular fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef tissue fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef organ fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef upward fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    classDef downward fill:#fce4ec,stroke:#ad1457,stroke-width:3px
+    classDef feedback fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    classDef perturbation fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef operator fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
+    
+    class M1,M2,M3,M4,M5 molecular
+    class C1,C2,C3,C4,C5 cellular
+    class T1,T2,T3,T4,T5 tissue
+    class O1,O2,O3,O4,O5 organ
+    class UP1,UP2,UP3,UP4 upward
+    class DOWN1,DOWN2,DOWN3,DOWN4 downward
+    class FB1,FB2,FB3,FB4 feedback
+    class PERT1,PERT2,PERT3,PERT4 perturbation
+    class OP1,OP2,OP3,OP4 operator
+

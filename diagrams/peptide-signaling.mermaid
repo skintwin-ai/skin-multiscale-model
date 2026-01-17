@@ -1,0 +1,123 @@
+graph TD
+    subgraph "Peptide Classes Ξ^{peptide}"
+        PC1[Signal Peptides: GHK, Matrixyl]
+        PC2[Carrier Peptides: X-50]
+        PC3[Neurotransmitter: Argireline]
+        PC4[Enzyme Inhibitors: Soybean]
+        PC5[Antimicrobial: LL-37, Defensins]
+    end
+    
+    subgraph "Receptor Binding Dynamics"
+        RB1[GPCR Activation: μs]
+        RB2[RTK Dimerization: ms]
+        RB3[Integrin Clustering]
+        RB4[Ion Channel Modulation]
+        RB5[K_{d} ~ 10^{-9} M]
+    end
+    
+    subgraph "Intracellular Cascade K^{peptide→cell}"
+        IC1[cAMP/PKA Pathway]
+        IC2[PI3K/AKT Activation]
+        IC3[MAPK Phosphorylation]
+        IC4[Ca²⁺ Oscillations]
+        IC5[Nuclear Import τ ~ 10² s]
+    end
+    
+    subgraph "Gene Expression Modulation"
+        GE1[COL1A1 Upregulation]
+        GE2[MMP Downregulation]
+        GE3[Growth Factor Expression]
+        GE4[ECM Component Synthesis]
+        GE5[τ_{transcription} ~ 10³ s]
+    end
+    
+    subgraph "Cellular Response Ψ_{peptide}"
+        CR1[Fibroblast: ↑ Collagen I/III]
+        CR2[Keratinocyte: ↑ Differentiation]
+        CR3[Melanocyte: ↓ Melanin Transfer]
+        CR4[Endothelial: ↑ Angiogenesis]
+        CR5[Immune: ↓ Inflammation]
+    end
+    
+    subgraph "Tissue Remodeling ℰ^{peptide}"
+        TR1[ECM Densification]
+        TR2[DEJ Reinforcement]
+        TR3[Dermal Thickening]
+        TR4[Vascular Network Enhancement]
+        TR5[τ_{remodeling} ~ 10⁶ s]
+    end
+    
+    subgraph "Formulation Penetration Strategies"
+        FP1[Liposomal Encapsulation]
+        FP2[Cell-Penetrating Sequences]
+        FP3[Stabilization: Acetylation]
+        FP4[Controlled Release Matrix]
+        FP5[MW < 500 Da Fragments]
+    end
+    
+    subgraph "Observable Effects Timeline"
+        OE1[Hours: Cell Signaling Active]
+        OE2[Days: Protein Synthesis ↑]
+        OE3[Weeks: ECM Accumulation]
+        OE4[Months: Structural Changes]
+        OE5[Plateau: New Steady State]
+    end
+    
+    subgraph "Synergistic Networks"
+        SN1[Peptide + Vitamin C → Collagen]
+        SN2[Peptide + Retinoid → Turnover]
+        SN3[Peptide + HA → Volume]
+        SN4[Peptide + Niacinamide → Barrier]
+        SN5[Multi-Peptide Complexes]
+    end
+    
+    PC1 --> RB1
+    PC2 --> RB2
+    PC3 --> RB4
+    PC4 --> RB1
+    PC5 --> RB3
+    
+    RB1 --> IC1
+    RB2 --> IC2
+    RB3 --> IC3
+    RB4 --> IC4
+    IC1 --> IC5
+    
+    IC5 --> GE1
+    IC3 --> GE2
+    IC2 --> GE3
+    IC1 --> GE4
+    
+    GE1 --> CR1
+    GE4 --> CR2
+    GE2 --> CR3
+    GE3 --> CR4
+    PC5 --> CR5
+    
+    CR1 --> TR1
+    CR2 --> TR2
+    CR1 --> TR3
+    CR4 --> TR4
+    
+    PC1 --> FP1
+    PC2 --> FP2
+    PC1 --> FP3
+    FP1 --> FP4
+    PC1 --> FP5
+    
+    IC1 --> OE1
+    GE1 --> OE2
+    CR1 --> OE3
+    TR1 --> OE4
+    TR3 --> OE5
+    
+    PC1 --> SN1
+    PC1 --> SN2
+    PC2 --> SN3
+    PC1 --> SN4
+    SN1 --> SN5
+    
+    style PC1 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:3px
+    style IC5 fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    style TR1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style SN5 fill:#fff3e0,stroke:#e65100,stroke-width:2px

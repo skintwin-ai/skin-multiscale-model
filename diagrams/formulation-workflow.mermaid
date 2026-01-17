@@ -1,0 +1,82 @@
+flowchart TD
+    subgraph "Target State Definition"
+        TARGET[Ξ^{target} = Desired Tensor State]
+        CURR[Ξ^{current} = Initial State Assessment]
+        DELTA[ΔΞ = Ξ^{target} - Ξ^{current}]
+    end
+    
+    subgraph "Scale-Specific Constraints"
+        C1[Nanoscale: MW < 500 Da, LogP ∈ [1,3]]
+        C2[Microscale: pH ∈ [4.5, 6.5]]
+        C3[Macroscale: η ∈ [1000, 50000] cP]
+        C4[Temporal: τ_{release} ~ τ_{cellular}]
+    end
+    
+    subgraph "Ingredient Selection Ξ^{ingredient}_α"
+        I1[Humectants → ∇(a_w) Modulation]
+        I2[Ceramides → Ξ^{lamellar} Restoration]
+        I3[Peptides → Ψ_{signaling} Activation]
+        I4[Antioxidants → ∇(ROS) Reduction]
+    end
+    
+    subgraph "Vehicle Matrix Ξ^{vehicle}"
+        V1[O/W Emulsion: Ξ^{biphasic}]
+        V2[Anhydrous: Ξ^{occlusive}]
+        V3[Hydrogel: Ξ^{aqueous}]
+        V4[Liquid Crystal: Ξ^{biomimetic}]
+    end
+    
+    subgraph "Penetration Strategy Ξ^{penetration}"
+        P1[Enhance K^{nano→micro}]
+        P2[Optimize ∇_{nano}Φ]
+        P3[Target Λ^{diff} Zones]
+        P4[Utilize J_{trans-scale}]
+    end
+    
+    subgraph "Formulation Assembly"
+        ASSEMBLE[Ξ^{formulation} = Σ_α c_α Ξ^{ingredient}_α ⊗ Ξ^{vehicle} ⊗ Ξ^{penetration}]
+    end
+    
+    subgraph "Validation Operators"
+        VAL1[Check: ⟨Ξ^{form}|Ĉ_{constraint}|Ξ^{form}⟩ = 1]
+        VAL2[Verify: [Ĥ_{form}, Ĥ_{skin}] ≈ 0]
+        VAL3[Ensure: ∂_t B_{eff} > 0]
+        VAL4[Test: Tr_{scales}(ρ̂_{form} ⊗ Ĝ ⊗ ρ̂_{skin}) > 0]
+    end
+    
+    TARGET --> DELTA
+    CURR --> DELTA
+    
+    DELTA --> C1
+    DELTA --> C2
+    DELTA --> C3
+    DELTA --> C4
+    
+    C1 --> I1
+    C2 --> I2
+    C3 --> I3
+    C4 --> I4
+    
+    I1 --> V1
+    I2 --> V4
+    I3 --> V3
+    I4 --> V2
+    
+    V1 --> P1
+    V2 --> P2
+    V3 --> P3
+    V4 --> P4
+    
+    P1 --> ASSEMBLE
+    P2 --> ASSEMBLE
+    P3 --> ASSEMBLE
+    P4 --> ASSEMBLE
+    
+    ASSEMBLE --> VAL1
+    VAL1 --> VAL2
+    VAL2 --> VAL3
+    VAL3 --> VAL4
+    
+    style TARGET fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    style ASSEMBLE fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style VAL4 fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px

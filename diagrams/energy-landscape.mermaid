@@ -1,0 +1,89 @@
+graph TB
+    subgraph "Energy Landscape E(Ξ)"
+        HIGH[High Energy States<br/>E > E_{critical}]
+        TRANS[Transition States<br/>E ≈ E_{barrier}]
+        LOW[Low Energy Minima<br/>E < E_{stable}]
+    end
+    
+    subgraph "Disordered State Basin"
+        D1[|Fluid⟩ Dominated<br/>High Entropy S_{max}]
+        D2[Random Lipid Orientation]
+        D3[Water Channels Open]
+        D4[B_{eff} → Minimum]
+        D5[E_{disorder} = +50 kJ/mol]
+    end
+    
+    subgraph "Transition Barrier ΔE^‡"
+        T1[Mixed Phase State]
+        T2[|Fluid⟩ ↔ |Hex⟩ Coexistence]
+        T3[Critical ∇(a_w) = 0.85]
+        T4[Activation Energy Required]
+        T5[ΔE^‡ = 25 kJ/mol]
+    end
+    
+    subgraph "Hexagonal State Well"
+        H1[|Hex⟩ Phase<br/>Intermediate Order]
+        H2[Partial Lipid Alignment]
+        H3[Reduced Water Flux]
+        H4[B_{eff} → Moderate]
+        H5[E_{hex} = +10 kJ/mol]
+    end
+    
+    subgraph "Liquid Crystal Minimum"
+        L1[|LCP⟩ Ground State<br/>Maximum Order]
+        L2[Lamellar Bilayers Aligned]
+        L3[Minimal Water Permeation]
+        L4[B_{eff} → Maximum]
+        L5[E_{LCP} = -30 kJ/mol]
+    end
+    
+    subgraph "Perturbation Effects δE"
+        P1[Temperature: δE_{thermal}]
+        P2[Hydration: δE_{a_w}]
+        P3[pH Shift: δE_{pH}]
+        P4[Mechanical: δE_{stress}]
+    end
+    
+    subgraph "Formulation Interventions"
+        F1[Ceramides: Stabilize |LCP⟩]
+        F2[Cholesterol: Reduce ΔE^‡]
+        F3[Fatty Acids: Deepen E_{LCP}]
+        F4[Surfactants: Destabilize → |Fluid⟩]
+    end
+    
+    D1 --> D5
+    D2 --> D1
+    D3 --> D1
+    D4 --> D1
+    
+    D5 --> T1
+    T1 --> T2
+    T2 --> T3
+    T3 --> T4
+    T4 --> T5
+    
+    T5 --> H1
+    H1 --> H2
+    H2 --> H3
+    H3 --> H4
+    H4 --> H5
+    
+    H5 --> L1
+    L1 --> L2
+    L2 --> L3
+    L3 --> L4
+    L4 --> L5
+    
+    P1 -.->|Increases disorder| D1
+    P2 -.->|Modulates transition| T1
+    P3 -.->|Affects stability| H1
+    P4 -.->|Can disrupt| L1
+    
+    F1 -->|Drives toward| L1
+    F2 -->|Lowers| T5
+    F3 -->|Stabilizes| L5
+    F4 -->|Pushes toward| D1
+    
+    style D5 fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px
+    style T5 fill:#fff9c4,stroke:#f57f17,stroke-width:3px
+    style L5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

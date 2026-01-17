@@ -1,0 +1,128 @@
+graph TD
+    subgraph "UV Photon Absorption"
+        UV1[UVB: 290-320nm, E=4.3-3.9eV]
+        UV2[UVA: 320-400nm, E=3.9-3.1eV]
+        UV3[Chromophore Excitation]
+        UV4[DNA π→π* Transition]
+        UV5[τ_{photon} ~ 10^{-15} s]
+    end
+    
+    subgraph "Nanoscale Photochemistry"
+        N1[Thymine Dimer Formation]
+        N2[8-oxoguanine Generation]
+        N3[Lipid Peroxyl Radicals]
+        N4[Protein Carbonylation]
+        N5[∇(ROS) Exponential Rise]
+    end
+    
+    subgraph "Molecular → Cellular Cascade"
+        MC1[p53 Activation]
+        MC2[NF-κB Translocation]
+        MC3[AP-1 Complex Formation]
+        MC4[MAPK Cascade Initiation]
+        MC5[τ_{signaling} ~ 10² s]
+    end
+    
+    subgraph "Cellular Response Ψ_{UV-stressed}"
+        C1[Cell Cycle Arrest G1/S]
+        C2[Melanocyte MSH Response]
+        C3[Keratinocyte Apoptosis]
+        C4[Langerhans Cell Migration]
+        C5[Emergency Differentiation]
+    end
+    
+    subgraph "Tissue Disruption ℰ^{photodamage}"
+        T1[Sunburn Cell Formation]
+        T2[DEJ Degradation: MMP↑]
+        T3[Collagen Fragmentation]
+        T4[Elastosis Development]
+        T5[Vascular Dilation]
+    end
+    
+    subgraph "Barrier Perturbation"
+        B1[Lipid Oxidation → |Fluid⟩]
+        B2[Corneocyte Envelope Damage]
+        B3[↑ TEWL Immediate]
+        B4[B_{eff} → 0.3·B_{baseline}]
+        B5[∇(a_w) Disruption]
+    end
+    
+    subgraph "Inflammatory Amplification"
+        I1[IL-1α/β Release]
+        I2[TNF-α Cascade]
+        I3[PGE2 Synthesis]
+        I4[Histamine Liberation]
+        I5[Erythema Index ↑300%]
+    end
+    
+    subgraph "Repair Activation"
+        R1[DNA Repair: NER/BER]
+        R2[Antioxidant Upregulation]
+        R3[Heat Shock Response]
+        R4[Ceramide Synthesis Surge]
+        R5[τ_{repair} ~ 10⁵ s]
+    end
+    
+    subgraph "Chronic Accumulation"
+        CH1[Mutation Fixation]
+        CH2[Solar Elastosis]
+        CH3[Pigmentary Changes]
+        CH4[Telangiectasia]
+        CH5[Field Cancerization]
+    end
+    
+    UV1 --> UV3
+    UV2 --> UV3
+    UV3 --> UV4
+    
+    UV4 --> N1
+    UV4 --> N2
+    UV3 --> N3
+    UV3 --> N4
+    N1 --> N5
+    
+    N5 --> MC1
+    N1 --> MC1
+    N5 --> MC2
+    N5 --> MC3
+    MC2 --> MC4
+    
+    MC1 --> C1
+    MC3 --> C2
+    MC1 --> C3
+    MC4 --> C4
+    MC1 --> C5
+    
+    C3 --> T1
+    MC3 --> T2
+    T2 --> T3
+    T3 --> T4
+    MC4 --> T5
+    
+    N3 --> B1
+    N4 --> B2
+    B1 --> B3
+    B2 --> B4
+    B3 --> B5
+    
+    T1 --> I1
+    I1 --> I2
+    I2 --> I3
+    I3 --> I4
+    I4 --> I5
+    
+    MC1 --> R1
+    N5 --> R2
+    I1 --> R3
+    B4 --> R4
+    
+    R1 -->|Incomplete| CH1
+    T4 --> CH2
+    C2 -->|Irregular| CH3
+    T5 -->|Persistent| CH4
+    CH1 --> CH5
+    
+    style UV1 fill:#ffeb3b,stroke:#f57f17,stroke-width:3px
+    style N5 fill:#ff5722,stroke:#d32f2f,stroke-width:2px
+    style B4 fill:#ffcdd2,stroke:#c62828,stroke-width:2px
+    style R1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px

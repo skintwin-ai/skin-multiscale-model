@@ -1,0 +1,65 @@
+graph TD
+    subgraph "Initial Lipid Distribution"
+        INIT[Ψ_{lipid}(t=0)]
+        CER[Ceramides]
+        CHOL[Cholesterol]
+        FFA[Fatty Acids]
+        
+        CER --> INIT
+        CHOL --> INIT
+        FFA --> INIT
+    end
+    
+    subgraph "Diffusion Operators"
+        LAT[D_{lateral}∇²_{∥}Ψ<br/>Lateral Diffusion]
+        FLIP[D_{flip}∇²_{⊥}Ψ<br/>Transbilayer Flip]
+        ASS[V_{assembly}[Ψ,Ψ]<br/>Assembly Potential]
+    end
+    
+    subgraph "Quantum Phase Superposition"
+        QS[Ξ^{lamellar} = Σ_n States]
+        LCP[|LCP⟩ Liquid Crystal<br/>A_n Amplitude]
+        HEX[|Hex⟩ Hexagonal<br/>B_n Amplitude]
+        FLUID[|Fluid⟩ Disordered<br/>C_n Amplitude]
+    end
+    
+    subgraph "Phase Transition Operators"
+        T1[⟨LCP|Ĥ|Hex⟩<br/>Crystal↔Hex]
+        T2[⟨Hex|Ĥ|Fluid⟩<br/>Hex↔Fluid]
+        T3[⟨LCP|Ĥ|Fluid⟩<br/>Crystal↔Fluid]
+    end
+    
+    subgraph "Emergent Properties"
+        BAR[Barrier Function<br/>exp(-∫σ|∇Ψ|²dx)]
+        PERM[Permeability<br/>1/B_{eff}]
+        ELAS[Elasticity<br/>⟨Ψ|Ê|Ψ⟩]
+    end
+    
+    INIT --> LAT
+    INIT --> FLIP
+    INIT --> ASS
+    
+    LAT --> QS
+    FLIP --> QS
+    ASS --> QS
+    
+    QS --> LCP
+    QS --> HEX
+    QS --> FLUID
+    
+    LCP -.-> T1
+    HEX -.-> T1
+    HEX -.-> T2
+    FLUID -.-> T2
+    LCP -.-> T3
+    FLUID -.-> T3
+    
+    T1 --> BAR
+    T2 --> PERM
+    T3 --> ELAS
+    
+    style QS fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    style LCP fill:#c5cae9,stroke:#303f9f
+    style HEX fill:#d7ccc8,stroke:#5d4037
+    style FLUID fill:#ffccbc,stroke:#e64a19
+    style BAR fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px

@@ -1,0 +1,85 @@
+graph LR
+    subgraph "24-Hour Tensor Oscillation"
+        OSC[Ξ^{skin}(t) = Ξ^{basal} + A·sin(2πt/24 + φ)]
+    end
+    
+    subgraph "06:00 - Morning Phase"
+        M1[∇(cortisol) Peak]
+        M2[↑ Proliferation Ψ_{mitotic}]
+        M3[↓ B_{eff} Minimum]
+        M4[↑ TEWL Maximum]
+        M5[Λ^{repair} → Λ^{defense}]
+    end
+    
+    subgraph "12:00 - Midday State"
+        D1[∇(ROS) Maximum]
+        D2[↑ Antioxidant Expression]
+        D3[↑ Sebum Production]
+        D4[DNA Repair Activation]
+        D5[τ_{enzyme} Shortest]
+    end
+    
+    subgraph "18:00 - Evening Transition"
+        E1[pH Shift Initiation]
+        E2[↓ Proliferation Rate]
+        E3[↑ Differentiation Signals]
+        E4[Microbiome Shift]
+        E5[∇(melatonin) Rising]
+    end
+    
+    subgraph "00:00 - Nocturnal Repair"
+        N1[↑ DNA Synthesis]
+        N2[↑ Lipid Production]
+        N3[↑ B_{eff} Restoration]
+        N4[↓ TEWL Minimum]
+        N5[Λ^{defense} → Λ^{repair}]
+    end
+    
+    subgraph "Molecular Oscillators"
+        MO1[CLOCK-BMAL1 Complex]
+        MO2[PER-CRY Feedback]
+        MO3[Rev-erbα Repression]
+        MO4[RORα Activation]
+    end
+    
+    subgraph "Cross-Scale Phase Coupling"
+        PC1[K^{clock→metabolism}]
+        PC2[G^{circadian→barrier}]
+        PC3[𝒯_{temporal→spatial}]
+        PC4[Γ_{day-night} Commutator]
+    end
+    
+    subgraph "Formulation Chronotherapy"
+        F1[AM: Antioxidant-rich Ξ^{form}]
+        F2[PM: Repair-focused Ξ^{form}]
+        F3[Phase-matched τ_{release}]
+        F4[Circadian-aligned c_α]
+    end
+    
+    OSC --> M1
+    OSC --> D1
+    OSC --> E1
+    OSC --> N1
+    
+    MO1 --> PC1
+    MO2 --> PC2
+    MO3 --> PC3
+    MO4 --> PC4
+    
+    M1 --> M2 --> M3 --> M4 --> M5
+    D1 --> D2 --> D3 --> D4 --> D5
+    E1 --> E2 --> E3 --> E4 --> E5
+    N1 --> N2 --> N3 --> N4 --> N5
+    
+    M5 --> F1
+    N5 --> F2
+    PC1 --> F3
+    PC2 --> F4
+    
+    F1 -.->|Optimal at| M1
+    F2 -.->|Optimal at| N1
+    
+    style OSC fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    style M3 fill:#ffcdd2,stroke:#d32f2f
+    style N3 fill:#c8e6c9,stroke:#2e7d32
+    style F1 fill:#fff3e0,stroke:#e65100

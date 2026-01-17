@@ -1,0 +1,200 @@
+graph TB
+    subgraph "MULTISCALE FORMULATION DESIGN FRAMEWORK"
+        TITLE[Tensor Field-Guided Formulation Strategy]
+    end
+    
+    subgraph "SKIN STATE ANALYSIS"
+        SA1[Current Barrier Function]
+        SA2[Hydration Status]
+        SA3[Inflammatory State]
+        SA4[Age-related Changes]
+        SA5[Environmental Damage]
+    end
+    
+    subgraph "MOLECULAR DESIGN PRINCIPLES"
+        MD1[Target Specific Receptors]
+        MD2[Optimize Binding Affinity]
+        MD3[Control Phase Behavior]
+        MD4[Enhance Stability]
+        MD5[Minimize Side Effects]
+    end
+    
+    subgraph "CELLULAR TARGETING STRATEGIES"
+        CT1[Keratinocyte Differentiation]
+        CT2[Fibroblast Activation]
+        CT3[Melanocyte Regulation]
+        CT4[Immune Modulation]
+        CT5[Stem Cell Support]
+    end
+    
+    subgraph "TISSUE-LEVEL OUTCOMES"
+        TL1[Barrier Enhancement]
+        TL2[Structural Integrity]
+        TL3[Mechanical Properties]
+        TL4[Vascular Function]
+        TL5[Neural Response]
+    end
+    
+    subgraph "ACTIVE INGREDIENT SELECTION"
+        AI1[Niacinamide: NAD+ Pathway]
+        AI2[Retinoids: Nuclear Signaling]
+        AI3[Vitamin C: Collagen Synthesis]
+        AI4[Peptides: Signal Modulation]
+        AI5[Hyaluronic Acid: Hydration]
+    end
+    
+    subgraph "VEHICLE OPTIMIZATION"
+        VO1[Penetration Enhancement]
+        VO2[Stability Maintenance]
+        VO3[Controlled Release]
+        VO4[Skin Compatibility]
+        VO5[Sensory Properties]
+    end
+    
+    subgraph "DELIVERY MECHANISMS"
+        DM1[Passive Diffusion]
+        DM2[Active Transport]
+        DM3[Follicular Delivery]
+        DM4[Transfollicular Route]
+        DM5[Nano-carrier Systems]
+    end
+    
+    subgraph "TEMPORAL CONSIDERATIONS"
+        TC1[Immediate Effects: Minutes]
+        TC2[Short-term: Hours to Days]
+        TC3[Medium-term: Weeks]
+        TC4[Long-term: Months]
+        TC5[Circadian Optimization]
+    end
+    
+    subgraph "FEEDBACK OPTIMIZATION"
+        FO1[Real-time Monitoring]
+        FO2[Adaptive Dosing]
+        FO3[Personalized Adjustment]
+        FO4[Efficacy Tracking]
+        FO5[Safety Assessment]
+    end
+    
+    subgraph "FORMULATION VALIDATION"
+        FV1[In Vitro Testing]
+        FV2[Ex Vivo Models]
+        FV3[Clinical Trials]
+        FV4[Long-term Studies]
+        FV5[Post-market Surveillance]
+    end
+    
+    subgraph "MULTISCALE INTEGRATION"
+        MI1[Molecular-Cellular Coherence]
+        MI2[Cellular-Tissue Alignment]
+        MI3[Tissue-Organ Harmony]
+        MI4[System-wide Optimization]
+    end
+    
+    %% Analysis to design connections
+    SA1 --> MD1
+    SA2 --> MD2
+    SA3 --> MD3
+    SA4 --> MD4
+    SA5 --> MD5
+    
+    %% Molecular to cellular connections
+    MD1 --> CT1
+    MD2 --> CT2
+    MD3 --> CT3
+    MD4 --> CT4
+    MD5 --> CT5
+    
+    %% Cellular to tissue connections
+    CT1 --> TL1
+    CT2 --> TL2
+    CT3 --> TL3
+    CT4 --> TL4
+    CT5 --> TL5
+    
+    %% Active ingredient targeting
+    AI1 --> MD1
+    AI1 --> CT1
+    AI2 --> MD2
+    AI2 --> CT2
+    AI3 --> MD3
+    AI3 --> CT2
+    AI4 --> MD4
+    AI4 --> CT4
+    AI5 --> MD5
+    AI5 --> CT1
+    
+    %% Vehicle optimization
+    VO1 --> DM1
+    VO2 --> DM2
+    VO3 --> DM3
+    VO4 --> DM4
+    VO5 --> DM5
+    
+    %% Delivery mechanisms
+    DM1 --> TC1
+    DM2 --> TC2
+    DM3 --> TC3
+    DM4 --> TC4
+    DM5 --> TC5
+    
+    %% Temporal to feedback
+    TC1 --> FO1
+    TC2 --> FO2
+    TC3 --> FO3
+    TC4 --> FO4
+    TC5 --> FO5
+    
+    %% Feedback to validation
+    FO1 --> FV1
+    FO2 --> FV2
+    FO3 --> FV3
+    FO4 --> FV4
+    FO5 --> FV5
+    
+    %% Multiscale integration
+    MD1 --> MI1
+    CT1 --> MI1
+    CT1 --> MI2
+    TL1 --> MI2
+    TL1 --> MI3
+    MI1 --> MI4
+    MI2 --> MI4
+    MI3 --> MI4
+    
+    %% Validation feedback
+    FV1 --> SA1
+    FV2 --> SA2
+    FV3 --> SA3
+    FV4 --> SA4
+    FV5 --> SA5
+    
+    %% Integration feedback
+    MI4 --> FO5
+    MI4 --> VO5
+    MI4 --> AI5
+    
+    %% Styling
+    classDef analysis fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef molecular fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef cellular fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef tissue fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef ingredient fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef vehicle fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef delivery fill:#fce4ec,stroke:#ad1457,stroke-width:2px
+    classDef temporal fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef feedback fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
+    classDef validation fill:#e0f2f1,stroke:#00695c,stroke-width:2px
+    classDef integration fill:#fafafa,stroke:#424242,stroke-width:3px
+    
+    class SA1,SA2,SA3,SA4,SA5 analysis
+    class MD1,MD2,MD3,MD4,MD5 molecular
+    class CT1,CT2,CT3,CT4,CT5 cellular
+    class TL1,TL2,TL3,TL4,TL5 tissue
+    class AI1,AI2,AI3,AI4,AI5 ingredient
+    class VO1,VO2,VO3,VO4,VO5 vehicle
+    class DM1,DM2,DM3,DM4,DM5 delivery
+    class TC1,TC2,TC3,TC4,TC5 temporal
+    class FO1,FO2,FO3,FO4,FO5 feedback
+    class FV1,FV2,FV3,FV4,FV5 validation
+    class MI1,MI2,MI3,MI4 integration
+

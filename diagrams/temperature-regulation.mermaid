@@ -1,0 +1,124 @@
+graph TD
+    subgraph "Temperature Gradient ∇T"
+        TG1[Core: 37°C ± 0.5°C]
+        TG2[Dermal: 35°C ± 1°C]
+        TG3[Epidermal: 33°C ± 2°C]
+        TG4[Surface: 32°C ± 3°C]
+        TG5[∇T = -2 to -5°C/cm]
+    end
+    
+    subgraph "Thermosensor Activation"
+        TS1[TRPV1: Heat >43°C]
+        TS2[TRPV3/4: Warm 27-35°C]
+        TS3[TRPM8: Cool <25°C]
+        TS4[TRPA1: Noxious Cold]
+        TS5[Ca²⁺ Flux → Signal]
+    end
+    
+    subgraph "Vascular Response Ξ^{vascular}"
+        VR1[Arteriole Dilation/Constriction]
+        VR2[AV Shunt Modulation]
+        VR3[Capillary Recruitment]
+        VR4[Blood Flow: 0.2-8.0 L/m²/min]
+        VR5[τ_{vascular} ~ 10² s]
+    end
+    
+    subgraph "Eccrine Sweat Response"
+        ES1[Cholinergic Stimulation]
+        ES2[Gland Activation Threshold]
+        ES3[Sweat Rate: 0-3 L/hr]
+        ES4[Evaporative Cooling]
+        ES5[Electrolyte Loss ∇[Na⁺]]
+    end
+    
+    subgraph "Piloerection Mechanism"
+        PM1[Sympathetic α-Adrenergic]
+        PM2[Arrector Pili Contraction]
+        PM3[Hair Angle Δθ = 30-60°]
+        PM4[Insulation Layer ↑]
+        PM5[Goosebump Formation]
+    end
+    
+    subgraph "Metabolic Adaptations"
+        MA1[↑ Mitochondrial Uncoupling]
+        MA2[Brown Adipose Activation]
+        MA3[Cellular Heat Production]
+        MA4[ATP → Heat Efficiency]
+        MA5[τ_{metabolic} ~ 10³ s]
+    end
+    
+    subgraph "Barrier Function Modulation"
+        BF1[Cold: ↑ Lipid Ordering]
+        BF2[Heat: ↑ Lipid Fluidity]
+        BF3[TEWL Temperature Dependence]
+        BF4[Enzyme Activity Shifts]
+        BF5[Phase Transition Risk]
+    end
+    
+    subgraph "Formulation Temperature Effects"
+        FT1[Penetration ∝ Temperature]
+        FT2[Stability Considerations]
+        FT3[Phase Separation Risk]
+        FT4[Occlusion → Heat Trap]
+        FT5[Cooling Ingredients Effect]
+    end
+    
+    subgraph "Observable Responses"
+        OR1[Flushing/Pallor]
+        OR2[Sweating Patterns]
+        OR3[Skin Temperature Maps]
+        OR4[Thermal Comfort Zone]
+        OR5[Adaptation Timeline]
+    end
+    
+    TG1 --> TG5
+    TG4 --> TS1
+    TG4 --> TS2
+    TG4 --> TS3
+    
+    TS1 --> VR1
+    TS2 --> VR1
+    TS3 --> VR1
+    VR1 --> VR2
+    VR2 --> VR3
+    VR3 --> VR4
+    
+    TS1 --> ES1
+    ES1 --> ES2
+    ES2 --> ES3
+    ES3 --> ES4
+    ES4 --> TG4
+    
+    TS3 --> PM1
+    PM1 --> PM2
+    PM2 --> PM3
+    PM3 --> PM4
+    PM4 --> TG4
+    
+    TS3 --> MA1
+    MA1 --> MA2
+    MA2 --> MA3
+    MA3 --> MA4
+    MA4 --> TG1
+    
+    TG4 --> BF1
+    TG4 --> BF2
+    BF2 --> BF3
+    TG3 --> BF4
+    BF2 --> BF5
+    
+    TG4 --> FT1
+    FT2 --> FT3
+    FT4 --> TG4
+    FT5 --> TG4
+    
+    VR4 --> OR1
+    ES3 --> OR2
+    TG4 --> OR3
+    OR1 --> OR4
+    MA1 --> OR5
+    
+    style TG1 fill:#ffcdd2,stroke:#d32f2f,stroke-width:3px
+    style TS2 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style VR1 fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    style ES3 fill:#bbdefb,stroke:#1976d2,stroke-width:2px

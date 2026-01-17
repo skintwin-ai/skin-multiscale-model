@@ -1,0 +1,132 @@
+graph TB
+    subgraph "TENSOR FIELD HIERARCHY"
+        TF[Skin Tensor = Molecular x Cellular x Tissue]
+    end
+    
+    subgraph "MOLECULAR SCALE [nano to micro meters]"
+        M1[Gradient Fields: pH, water, lipids]
+        M2[Receptor-Ligand Dynamics]
+        M3[Enzyme Kinetics]
+        M4[Phase Transitions: LCP-Hex-Fluid]
+        M5[Time Scale: milliseconds to seconds]
+    end
+    
+    subgraph "CELLULAR SCALE [micro to hundreds of micrometers]"
+        C1[Cell State Functions]
+        C2[Differentiation Manifolds]
+        C3[Proliferation Dynamics]
+        C4[Migration and Adhesion]
+        C5[Time Scale: seconds to hours]
+    end
+    
+    subgraph "TISSUE SCALE [hundreds of micrometers to centimeters]"
+        T1[Stratification: Layer Emergence]
+        T2[Barrier Function]
+        T3[Vascular Networks]
+        T4[ECM Organization]
+        T5[Time Scale: hours to days]
+    end
+    
+    subgraph "CROSS-SCALE COUPLING"
+        CS1[Nano-Micro: Molecular-Cell]
+        CS2[Micro-Macro: Cell-Tissue]
+        CS3[Bottom-up Propagation]
+        CS4[Top-down Feedback]
+        CS5[Scale Commutators]
+    end
+    
+    subgraph "MASTER EQUATION"
+        ME[Time Evolution = Sum of Scale Operators + Cross-Scale Coupling]
+    end
+    
+    subgraph "PERTURBATION CASCADES"
+        P1[Environmental: UV, Pollution, Temperature]
+        P2[Chemical: pH, Formulations]
+        P3[Biological: Microbiome, Aging]
+        P4[Mechanical: Stress, Pressure]
+        P5[Pathological: Disease States]
+    end
+    
+    subgraph "HOMEOSTATIC ATTRACTORS"
+        H1[Optimal Barrier Protection]
+        H2[Water Balance]
+        H3[28-day Turnover Cycle]
+        H4[Microbiome Symbiosis]
+        H5[Regenerative Repair]
+    end
+    
+    subgraph "FORMULATION DESIGN"
+        F1[Ingredients: Active Components]
+        F2[Vehicle: Delivery Matrix]
+        F3[Penetration: Pathway Optimization]
+        F4[Stability: Phase Coherence]
+        F5[Efficacy: Therapeutic Outcome]
+    end
+    
+    subgraph "OBSERVABLE METRICS"
+        O1[TEWL: Barrier Function]
+        O2[Hydration: Water Content]
+        O3[Elasticity: Mechanical Properties]
+        O4[Age: Cumulative Damage]
+        O5[Health: Overall State]
+    end
+    
+    subgraph "SELF-ORGANIZATION"
+        SO[Homeostatic Function: Perturbation to Stable State]
+    end
+    
+    %% Connections
+    TF --> M1
+    TF --> C1
+    TF --> T1
+    
+    M1 --> CS1
+    C1 --> CS2
+    CS1 --> CS3
+    CS2 --> CS3
+    CS3 --> ME
+    CS4 --> ME
+    CS5 --> ME
+    
+    P1 --> M1
+    P2 --> M1
+    P3 --> C1
+    P4 --> T1
+    P5 --> TF
+    
+    ME --> H1
+    ME --> H2
+    ME --> H3
+    ME --> H4
+    ME --> H5
+    
+    F1 --> M1
+    F2 --> CS1
+    F3 --> CS3
+    F4 --> ME
+    F5 --> O5
+    
+    H1 --> O1
+    H2 --> O2
+    T1 --> O3
+    CS4 --> O4
+    SO --> O5
+    
+    O1 --> SO
+    O2 --> SO
+    O3 --> SO
+    O4 --> SO
+    O5 --> SO
+    SO --> TF
+    
+    %% Styling
+    classDef tensor fill:#e1f5fe,stroke:#0277bd,stroke-width:4px
+    classDef equation fill:#f3e5f5,stroke:#6a1b9a,stroke-width:3px
+    classDef selforg fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    classDef coupling fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    
+    class TF tensor
+    class ME equation
+    class SO selforg
+    class CS3 coupling
+

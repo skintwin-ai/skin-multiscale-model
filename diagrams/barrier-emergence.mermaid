@@ -1,0 +1,75 @@
+graph TD
+    subgraph "Barrier Operator Definition"
+        BOP[B̂_{operator} = exp(-∫σ|∇Ψ_{lipid}|²dx) ⊗ Θ(ρ_{corneocyte} - ρ_c)]
+    end
+    
+    subgraph "Lipid Phase Component"
+        LIP1[∇Ψ_{lipid} Gradient]
+        LIP2[σ(x) Conductivity]
+        LIP3[Continuous Phase Check]
+        LEXP[exp(-∫σ|∇Ψ|²dx)]
+    end
+    
+    subgraph "Corneocyte Component"
+        COR1[ρ_{corneocyte} Density]
+        COR2[ρ_c Critical Threshold]
+        COR3[Θ Step Function]
+        CSTEP[Θ(ρ - ρ_c)]
+    end
+    
+    subgraph "Quantum State |Ξ^{corneum}⟩"
+        QC1[Corneocyte Arrangement]
+        QC2[Lipid Organization]
+        QC3[Water Distribution]
+        QC4[Protein Cross-links]
+    end
+    
+    subgraph "Effective Barrier Calculation"
+        CALC[B_{eff} = ⟨Ξ^{corneum}|B̂_{operator}|Ξ^{corneum}⟩]
+    end
+    
+    subgraph "Observable Properties"
+        TEWL[TEWL = 1/B_{eff}]
+        PERM[Permeability Coefficient]
+        RESIST[Electrical Resistance]
+        HYDRO[Hydrophobicity Index]
+    end
+    
+    subgraph "Phase Requirements"
+        REQ1[Lipid Continuity ✓]
+        REQ2[Corneocyte Density ✓]
+        REQ3[Phase Coherence ✓]
+        REQ4[Structural Integrity ✓]
+    end
+    
+    LIP1 --> LIP2
+    LIP2 --> LIP3
+    LIP3 --> LEXP
+    
+    COR1 --> COR3
+    COR2 --> COR3
+    COR3 --> CSTEP
+    
+    LEXP --> BOP
+    CSTEP --> BOP
+    
+    QC1 --> CALC
+    QC2 --> CALC
+    QC3 --> CALC
+    QC4 --> CALC
+    BOP --> CALC
+    
+    CALC --> TEWL
+    CALC --> PERM
+    CALC --> RESIST
+    CALC --> HYDRO
+    
+    REQ1 -.->|Required for| LEXP
+    REQ2 -.->|Required for| CSTEP
+    REQ3 -.->|Enhances| CALC
+    REQ4 -.->|Maintains| CALC
+    
+    style BOP fill:#e1f5fe,stroke:#0277bd,stroke-width:4px
+    style CALC fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style TEWL fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px
+    style REQ1 fill:#fff9c4,stroke:#f57f17

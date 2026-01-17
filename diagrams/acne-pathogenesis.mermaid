@@ -1,0 +1,126 @@
+graph TD
+    subgraph "Initial Dysregulation Ξ^{acne}"
+        ID1[Androgen Surge ∇(DHT)↑]
+        ID2[Sebum Overproduction]
+        ID3[Follicular Hyperkeratinization]
+        ID4[C. acnes Proliferation]
+        ID5[Inflammatory Cascade]
+    end
+    
+    subgraph "Sebaceous Gland Hyperactivity"
+        SG1[5α-Reductase ↑↑]
+        SG2[Sebocyte Hypertrophy]
+        SG3[Lipogenesis Rate ×3]
+        SG4[Altered Lipid Composition]
+        SG5[J_{sebum} > 2.5 μg/cm²/min]
+    end
+    
+    subgraph "Follicular Occlusion"
+        FO1[Corneocyte Cohesion ↑]
+        FO2[Desquamation Failure]
+        FO3[Microcomedo Formation]
+        FO4[Pressure Buildup ΔP]
+        FO5[Hypoxic Microenvironment]
+    end
+    
+    subgraph "Microbial Dysbiosis"
+        MD1[C. acnes > 10⁶ CFU]
+        MD2[Biofilm Matrix Formation]
+        MD3[Lipase → FFA Production]
+        MD4[Porphyrin Accumulation]
+        MD5[Quorum Sensing Active]
+    end
+    
+    subgraph "Inflammatory Network"
+        IN1[TLR2 Activation]
+        IN2[IL-1β/IL-8 Release]
+        IN3[Neutrophil Infiltration]
+        IN4[Matrix Metalloproteinases]
+        IN5[Scarring Risk Zones]
+    end
+    
+    subgraph "Barrier Disruption Feedback"
+        BD1[TEWL ↑ Locally]
+        BD2[pH → Alkaline Shift]
+        BD3[Lipid Barrier Compromise]
+        BD4[Bacterial Penetration ↑]
+        BD5[Sensitivity Amplification]
+    end
+    
+    subgraph "Lesion Evolution States"
+        LE1[Λ^{comedo}: Non-inflammatory]
+        LE2[Λ^{papule}: Early inflammatory]
+        LE3[Λ^{pustule}: Neutrophilic]
+        LE4[Λ^{nodule}: Deep inflammatory]
+        LE5[Λ^{scar}: Tissue remodeling]
+    end
+    
+    subgraph "Therapeutic Tensor Modulation"
+        TT1[Retinoids → Normalize T^{kornification}]
+        TT2[BPO/SA → Comedolysis]
+        TT3[Antibiotics → ↓ C. acnes]
+        TT4[Anti-androgens → ↓ Sebum]
+        TT5[Anti-inflammatory → ↓ Cascade]
+    end
+    
+    subgraph "System Recovery Trajectory"
+        SR1[Week 1-2: Purging Phase]
+        SR2[Week 4-6: Inflammation ↓]
+        SR3[Week 8-12: Comedone ↓]
+        SR4[Month 3-6: Scarring Prevention]
+        SR5[Homeostatic Restoration]
+    end
+    
+    ID1 --> SG1
+    SG1 --> SG2
+    SG2 --> SG3
+    SG3 --> SG4
+    SG4 --> SG5
+    
+    ID3 --> FO1
+    FO1 --> FO2
+    FO2 --> FO3
+    FO3 --> FO4
+    FO4 --> FO5
+    
+    FO5 --> MD1
+    SG5 --> MD1
+    MD1 --> MD2
+    MD2 --> MD3
+    MD3 --> MD4
+    MD4 --> MD5
+    
+    MD3 --> IN1
+    IN1 --> IN2
+    IN2 --> IN3
+    IN3 --> IN4
+    IN4 --> IN5
+    
+    IN2 --> BD1
+    MD3 --> BD2
+    BD2 --> BD3
+    BD3 --> BD4
+    BD4 --> BD5
+    
+    FO3 --> LE1
+    IN2 --> LE2
+    IN3 --> LE3
+    IN4 --> LE4
+    IN5 --> LE5
+    
+    TT1 -->|Blocks| FO1
+    TT2 -->|Disrupts| FO3
+    TT3 -->|Reduces| MD1
+    TT4 -->|Inhibits| SG1
+    TT5 -->|Blocks| IN2
+    
+    TT1 --> SR1
+    SR1 --> SR2
+    SR2 --> SR3
+    SR3 --> SR4
+    SR4 --> SR5
+    
+    style ID1 fill:#ff9800,stroke:#e65100,stroke-width:3px
+    style MD1 fill:#9c27b0,stroke:#6a1b9a,stroke-width:2px
+    style IN3 fill:#f44336,stroke:#d32f2f,stroke-width:2px
+    style SR5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

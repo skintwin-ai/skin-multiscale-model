@@ -1,0 +1,55 @@
+graph LR
+    subgraph "∇_{nano} Φ Gradient Fields"
+        pH[∇pH<br/>3.5-7.0]
+        AW[∇a_w<br/>Water Activity]
+        EPS[∇ε<br/>Dielectric]
+        LIPID[∇c_{lipid}<br/>Lipid Conc]
+    end
+    
+    subgraph "J_{trans-scale} Flux Operators"
+        FLUX1[J_{pH→cellular}]
+        FLUX2[J_{a_w→tissue}]
+        FLUX3[J_{ε→barrier}]
+        FLUX4[J_{lipid→lamellar}]
+    end
+    
+    subgraph "Molecular Species Movement"
+        H2O[H₂O Molecules]
+        CER2[Ceramide-2]
+        CHO[Cholesterol]
+        FFA[Free Fatty Acids]
+        NMF[Natural Moisturizing<br/>Factors]
+    end
+    
+    subgraph "Phase Transition Zones"
+        TRANS[Λ^{diff} Manifold]
+        LCP[Liquid Crystal Phase]
+        HEX[Hexagonal Phase]
+        FLUID[Fluid Phase]
+    end
+    
+    pH --> FLUX1
+    AW --> FLUX2
+    EPS --> FLUX3
+    LIPID --> FLUX4
+    
+    H2O -.->|follows ∇a_w| AW
+    CER2 -.->|follows ∇c_{lipid}| LIPID
+    CHO -.->|follows ∇ε| EPS
+    FFA -.->|follows ∇pH| pH
+    NMF -.->|binds H₂O| H2O
+    
+    FLUX1 --> TRANS
+    FLUX2 --> TRANS
+    FLUX3 --> TRANS
+    FLUX4 --> TRANS
+    
+    TRANS -->|triggers| LCP
+    TRANS -->|triggers| HEX
+    TRANS -->|triggers| FLUID
+    
+    style pH fill:#ffcdd2,stroke:#d32f2f
+    style AW fill:#bbdefb,stroke:#1976d2
+    style EPS fill:#fff9c4,stroke:#f57f17
+    style LIPID fill:#d1c4e9,stroke:#512da8
+    style TRANS fill:#c8e6c9,stroke:#388e3c,stroke-width:3px

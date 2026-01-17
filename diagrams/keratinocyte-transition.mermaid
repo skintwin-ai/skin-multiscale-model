@@ -1,0 +1,60 @@
+stateDiagram-v2
+    [*] --> Ξ_viable: Stem Cell State
+    
+    state "Ξ^{viable} Keratinocyte" as Ξ_viable {
+        state "Low [Ca²⁺]ᵢ < 0.1mM" as LowCa
+        state "High Proliferation" as Prolif
+        state "a_w > 0.95" as HighWater
+        LowCa --> Prolif
+        Prolif --> HighWater
+    }
+    
+    state "Λ^{diff} Threshold Manifold" as Lambda {
+        state "[Ca²⁺]ᵢ > 1.2mM" as CaThresh
+        state "a_w < 0.85" as WaterThresh
+        state "τ_{differentiation}" as TimeThresh
+        CaThresh --> WaterThresh
+        WaterThresh --> TimeThresh
+    }
+    
+    state "T^{kornification} Operator" as Kornification {
+        direction LR
+        state "Lamellar Body" as LB
+        state "Exocytosis" as EXO
+        state "Envelope Formation" as ENV
+        LB --> EXO
+        EXO --> ENV
+    }
+    
+    state "Ξ^{cornified} Corneocyte" as Ξ_cornified {
+        state "Anuclear" as ANU
+        state "Cross-linked Envelope" as CLE
+        state "Lipid Attachment" as LA
+        ANU --> CLE
+        CLE --> LA
+    }
+    
+    state "ℰ^{stratification} Emergence" as Stratification {
+        state "⊕ Basale" as BAS
+        state "⊕ Spinosum" as SPI
+        state "⊕ Granulosum" as GRA
+        state "⊕ Corneum" as COR
+        BAS --> SPI
+        SPI --> GRA
+        GRA --> COR
+    }
+    
+    Ξ_viable --> Lambda: ∇Ca²⁺ + ∇a_w
+    Lambda --> Kornification: Threshold Crossed
+    Kornification --> Ξ_cornified: Irreversible
+    Ξ_cornified --> Stratification: Collective Organization
+    
+    note right of Lambda
+        Critical Phase Transition:
+        Ψ_{keratinocyte} = f(∇Ca²⁺, ∇a_w, τ)
+    end note
+    
+    note right of Stratification
+        Emergent Barrier Properties:
+        B_{eff} = ⟨Ξ^{corneum}|B̂|Ξ^{corneum}⟩
+    end note

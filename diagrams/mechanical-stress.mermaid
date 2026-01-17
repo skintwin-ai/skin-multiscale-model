@@ -1,0 +1,111 @@
+graph TD
+    subgraph "Applied Stress Tensor σ_{ij}"
+        S1[σ_{xx}: Normal Stress]
+        S2[σ_{xy}: Shear Stress]
+        S3[σ_{zz}: Compression]
+        S4[ε_{ij}: Strain Field]
+        S5[∇·σ = F_{external}]
+    end
+    
+    subgraph "Nanoscale Mechanotransduction"
+        N1[Integrin Deformation]
+        N2[Focal Adhesion Activation]
+        N3[Cytoskeletal Tension Δτ]
+        N4[Ca²⁺ Channel Opening]
+        N5[τ_{mechano} ~ 10⁻¹ s]
+    end
+    
+    subgraph "Molecular → Cellular Coupling"
+        MC1[K^{stress→signal}: YAP/TAZ]
+        MC2[Nuclear Translocation]
+        MC3[Gene Expression Shift]
+        MC4[Mechanosensitive Pathways]
+    end
+    
+    subgraph "Cellular Response Ψ_{mechanical}"
+        C1[Keratinocyte Shape Change]
+        C2[↑ K5/K14 Expression]
+        C3[Desmosome Reinforcement]
+        C4[↑ Involucrin at Edges]
+        C5[Proliferation Modulation]
+    end
+    
+    subgraph "Tissue Adaptation ℰ^{mechanical}"
+        T1[Epidermal Thickening]
+        T2[Rete Ridge Formation]
+        T3[DEJ Undulation ↑]
+        T4[Collagen Alignment]
+        T5[τ_{remodeling} ~ 10⁶ s]
+    end
+    
+    subgraph "Barrier Function Response"
+        B1[Lipid Organization Shift]
+        B2[|LCP⟩ → |Hex⟩ Transition]
+        B3[Corneocyte Orientation]
+        B4[B_{eff} Anisotropy]
+        B5[Direction-Dependent TEWL]
+    end
+    
+    subgraph "Emergent Protection"
+        P1[Callus Formation Zones]
+        P2[↑ ρ_{corneocyte} Locally]
+        P3[Mechanical Barrier B_{mech}]
+        P4[Stress Distribution σ_{ij}']
+        P5[New Equilibrium State]
+    end
+    
+    subgraph "Observable Adaptations"
+        OBS1[Minutes: Erythema Response]
+        OBS2[Hours: Cell Orientation]
+        OBS3[Days: Hyperkeratosis]
+        OBS4[Weeks: Structural Remodeling]
+        OBS5[Months: Permanent Adaptation]
+    end
+    
+    S1 --> S4
+    S2 --> S4
+    S3 --> S4
+    S4 --> S5
+    
+    S5 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    
+    N4 --> MC1
+    MC1 --> MC2
+    MC2 --> MC3
+    MC3 --> MC4
+    
+    MC4 --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 --> C4
+    C4 --> C5
+    
+    C5 --> T1
+    T1 --> T2
+    T2 --> T3
+    T3 --> T4
+    
+    T1 --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 --> B4
+    B4 --> B5
+    
+    B4 --> P1
+    P1 --> P2
+    P2 --> P3
+    P3 --> P4
+    P4 --> P5
+    
+    N1 --> OBS1
+    C1 --> OBS2
+    T1 --> OBS3
+    T4 --> OBS4
+    P5 --> OBS5
+    
+    style S1 fill:#ffebee,stroke:#c62828,stroke-width:3px
+    style MC1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    style P5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

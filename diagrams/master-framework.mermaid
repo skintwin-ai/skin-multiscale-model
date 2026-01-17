@@ -1,0 +1,125 @@
+graph TB
+    subgraph "TENSOR FIELD HIERARCHY Ξ^{skin}_{αβγ}"
+        TF[Ξ^{skin} = Ξ^{molecular} ⊗ Ξ^{cellular} ⊗ Ξ^{tissue}]
+    end
+    
+    subgraph "MOLECULAR SCALE α [10^{-9}-10^{-6}m]"
+        M1[∇_{nano}Φ: pH, a_w, ε, c_{lipid}]
+        M2[Receptor-Ligand Dynamics]
+        M3[Enzyme Kinetics]
+        M4[Phase Transitions: LCP↔Hex↔Fluid]
+        M5[τ_{molecular} ~ 10^{-3}-10^{2} s]
+    end
+    
+    subgraph "CELLULAR SCALE β [10^{-6}-10^{-4}m]"
+        C1[Ψ_{cell}: State Functions]
+        C2[Differentiation Manifolds Λ^{diff}]
+        C3[Proliferation Dynamics]
+        C4[Migration & Adhesion]
+        C5[τ_{cellular} ~ 10^{2}-10^{5} s]
+    end
+    
+    subgraph "TISSUE SCALE γ [10^{-4}-10^{-2}m]"
+        T1[ℰ^{stratification}: Layer Emergence]
+        T2[B_{eff}: Barrier Function]
+        T3[Vascular Networks]
+        T4[ECM Organization]
+        T5[τ_{tissue} ~ 10^{5}-10^{7} s]
+    end
+    
+    subgraph "CROSS-SCALE OPERATORS"
+        CS1[K^{nano→micro}: Molecular→Cell]
+        CS2[G^{micro→macro}: Cell→Tissue]
+        CS3[𝒯_{up}: Bottom-up Propagation]
+        CS4[𝒯_{down}: Top-down Feedback]
+        CS5[Γ_{nm}: Scale Commutators]
+    end
+    
+    subgraph "MASTER EQUATION"
+        ME[∂_t Ξ^{skin} = Σ_n τ_n^{-1}ℒ_n Ξ^{(n)} + Σ_{nm} Γ_{nm}[Ξ^{(n)}, Ξ^{(m)}]]
+    end
+    
+    subgraph "PERTURBATION CLASSES δΞ"
+        P1[Environmental: UV, Pollution, T]
+        P2[Chemical: pH, Formulations]
+        P3[Biological: Microbiome, Aging]
+        P4[Mechanical: σ_{ij}, Pressure]
+        P5[Pathological: Disease States]
+    end
+    
+    subgraph "HOMEOSTATIC ATTRACTORS Λ"
+        H1[Λ^{barrier}: Optimal Protection]
+        H2[Λ^{hydration}: Water Balance]
+        H3[Λ^{turnover}: 28-day Cycle]
+        H4[Λ^{microbiome}: Symbiosis]
+        H5[Λ^{repair}: Regenerative]
+    end
+    
+    subgraph "FORMULATION DESIGN Ξ^{form}"
+        F1[Ingredients: Σ c_α Ξ^{α}]
+        F2[Vehicle: Ξ^{vehicle} Matrix]
+        F3[Penetration: Ξ^{pathway}]
+        F4[Stability: Phase Coherence]
+        F5[Efficacy: ⟨Therapeutic⟩]
+    end
+    
+    subgraph "OBSERVABLE METRICS"
+        O1[TEWL = f(B_{eff})]
+        O2[Hydration = ∫a_w dV]
+        O3[Elasticity = ⟨Ξ|Ê|Ξ⟩]
+        O4[Age = Σ 𝒟_{deterioration}]
+        O5[Health = ||Ξ - Ξ^{ideal}||]
+    end
+    
+    subgraph "SELF-ORGANIZATION ℱ"
+        SO[ℱ: (Ξ_{perturbed}, ∇_{multiscale}, 𝒞_{biological}) →^{t} Ξ_{homeostatic}]
+    end
+    
+    TF --> M1
+    TF --> C1
+    TF --> T1
+    
+    M1 --> CS1
+    C1 --> CS2
+    CS1 --> CS3
+    CS2 --> CS3
+    CS3 --> ME
+    CS4 --> ME
+    CS5 --> ME
+    
+    P1 --> M1
+    P2 --> M1
+    P3 --> C1
+    P4 --> T1
+    P5 --> TF
+    
+    ME --> H1
+    ME --> H2
+    ME --> H3
+    ME --> H4
+    ME --> H5
+    
+    F1 --> M1
+    F2 --> CS1
+    F3 --> CS3
+    F4 --> ME
+    F5 --> O5
+    
+    H1 --> O1
+    H2 --> O2
+    T1 --> O3
+    CS4 --> O4
+    SO --> O5
+    
+    O1 --> SO
+    O2 --> SO
+    O3 --> SO
+    O4 --> SO
+    O5 --> SO
+    
+    SO --> TF
+    
+    style TF fill:#e1f5fe,stroke:#0277bd,stroke-width:4px
+    style ME fill:#f3e5f5,stroke:#6a1b9a,stroke-width:3px
+    style SO fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style CS3 fill:#fff3e0,stroke:#e65100,stroke-width:2px

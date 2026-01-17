@@ -1,0 +1,102 @@
+graph TD
+    subgraph "Nanoscale: Retinoid-Receptor Complex"
+        R1[Retinol → Retinal → Retinoic Acid]
+        R2[RAR/RXR Nuclear Receptors]
+        R3[DNA Binding: RARE Elements]
+        R4[Transcription Factor Activation]
+        R5[∇(RA) Gradient Formation]
+    end
+    
+    subgraph "Molecular → Nuclear Coupling"
+        MN1[K^{RA→nucleus}: Import machinery]
+        MN2[Chromatin Remodeling: H3K27 acetylation]
+        MN3[Gene Expression Cascade Initiation]
+        MN4[τ_{transcription} ~ 10³ s]
+    end
+    
+    subgraph "Microscale: Keratinocyte Reprogramming"
+        K1[↑ K5/K14 → K1/K10 Switch]
+        K2[↓ Corneocyte Adhesion]
+        K3[↑ Lamellar Body Production]
+        K4[Accelerated τ_{differentiation}]
+        K5[Desquamation Enhancement]
+    end
+    
+    subgraph "Cellular → Tissue Propagation"
+        CT1[𝒯_{cell→tissue}: Accelerated turnover]
+        CT2[Stratum Corneum Thinning]
+        CT3[Viable Epidermis Thickening]
+        CT4[DEJ Undulation Increase]
+    end
+    
+    subgraph "Macroscale: Barrier Perturbation"
+        M1[Initial B_{eff} Decrease]
+        M2[TEWL Transient Increase]
+        M3[Erythema Response]
+        M4[Compensatory Lipid Synthesis]
+    end
+    
+    subgraph "Tissue → System Feedback"
+        TS1[Inflammatory Cascade: IL-1α]
+        TS2[Barrier Disruption Signal]
+        TS3[Fibroblast Activation]
+        TS4[Collagen Remodeling]
+    end
+    
+    subgraph "Long-term Homeostatic Shift"
+        H1[New Steady State: τ_{turnover} = 21d]
+        H2[Enhanced B_{eff} After Adaptation]
+        H3[Optimized Ξ^{lamellar} Organization]
+        H4[Reduced Photodamage Susceptibility]
+    end
+    
+    subgraph "Observable Phase Transitions"
+        PT1[Week 1-2: Irritation Phase]
+        PT2[Week 3-6: Adaptation Phase]
+        PT3[Week 8-12: Integration Phase]
+        PT4[Month 3+: Homeostatic Phase]
+    end
+    
+    R1 --> R2
+    R2 --> R3
+    R3 --> R4
+    R4 --> R5
+    
+    R5 --> MN1
+    MN1 --> MN2
+    MN2 --> MN3
+    
+    MN3 --> K1
+    K1 --> K2
+    K1 --> K3
+    K2 --> K4
+    K4 --> K5
+    
+    K5 --> CT1
+    CT1 --> CT2
+    CT1 --> CT3
+    CT1 --> CT4
+    
+    CT2 --> M1
+    M1 --> M2
+    M2 --> M3
+    M3 --> M4
+    
+    M1 --> TS1
+    TS1 --> TS2
+    TS2 --> TS3
+    TS3 --> TS4
+    
+    TS4 --> H1
+    M4 --> H2
+    CT3 --> H3
+    K3 --> H4
+    
+    PT1 --> PT2
+    PT2 --> PT3
+    PT3 --> PT4
+    
+    style R1 fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style K1 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style H2 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style PT1 fill:#ffcdd2,stroke:#d32f2f

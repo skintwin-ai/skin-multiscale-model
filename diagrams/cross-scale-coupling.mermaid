@@ -1,0 +1,73 @@
+graph TB
+    subgraph "Nanoscale Ξ^{(n)}"
+        N1[δΞ^{molecular} Perturbation]
+        N2[Hyaluronic Acid Binding]
+        N3[Ceramide Assembly]
+        N4[Peptide-Receptor Complex]
+    end
+    
+    subgraph "𝒯_{up} Upward Coupling"
+        UP1[∫ K^{nano→micro}(x,x') dx']
+        UP2[∫ G^{coupling}_{nm} dV^{(m)}]
+        UP3[Osmotic Gradient Generation]
+    end
+    
+    subgraph "Microscale Ξ^{(n+1)}"
+        M1[Ψ_{keratinocyte} Response]
+        M2[Cellular Volume Modulation]
+        M3[Desmosome Reorganization]
+        M4[Lamellar Body Formation]
+    end
+    
+    subgraph "𝒯_{up} Tissue Coupling"
+        UP4[ℰ^{stratification} Operator]
+        UP5[∫ Γ_{cellular→tissue} dΩ]
+        UP6[Collective Phase Transition]
+    end
+    
+    subgraph "Macroscale Ξ^{(n+2)}"
+        T1[Tissue Turgor Increase]
+        T2[Barrier Function B_{eff}]
+        T3[TEWL Modulation]
+        T4[Mechanical Properties]
+    end
+    
+    subgraph "𝒯_{down} Downward Feedback"
+        DOWN1[Mechanical Stress → Ca²⁺]
+        DOWN2[pH Gradient → Enzyme Activity]
+        DOWN3[Hydration → Phase State]
+    end
+    
+    N1 --> UP1
+    N2 --> UP1
+    N3 --> UP2
+    N4 --> UP3
+    
+    UP1 --> M1
+    UP2 --> M2
+    UP3 --> M3
+    UP1 --> M4
+    
+    M1 --> UP4
+    M2 --> UP5
+    M3 --> UP5
+    M4 --> UP6
+    
+    UP4 --> T1
+    UP5 --> T2
+    UP6 --> T3
+    UP5 --> T4
+    
+    T1 -.->|Feedback| DOWN1
+    T2 -.->|Feedback| DOWN2
+    T3 -.->|Feedback| DOWN3
+    
+    DOWN1 -.-> N1
+    DOWN2 -.-> N3
+    DOWN3 -.-> N2
+    
+    style N1 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style M1 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style T1 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style UP1 fill:#e3f2fd,stroke:#1565c0,stroke-width:3px
+    style DOWN1 fill:#fce4ec,stroke:#c2185b,stroke-width:2px

@@ -1,0 +1,62 @@
+graph LR
+    subgraph "Ξ^{formulation} Components"
+        FORM[Ξ^{formulation} = Σ_α c_α Ξ_α ⊗ Ξ^{vehicle} ⊗ Ξ^{penetration}]
+    end
+    
+    subgraph "Molecular Scale Operators"
+        HUM[Humectants → ∇(a_w)]
+        CER_ADD[Ceramides → Ξ^{lamellar}]
+        PEP[Peptides → Ψ_{signaling}]
+        NIA[Niacinamide → NAD⁺]
+    end
+    
+    subgraph "Vehicle Tensor Ξ^{vehicle}"
+        EMU[Emulsion Phase]
+        GEL[Gel Matrix]
+        SER[Serum Base]
+        OIL[Oil Phase]
+    end
+    
+    subgraph "Penetration Operators Ξ^{penetration}"
+        TRANS[Transcellular Route]
+        INTER[Intercellular Route]
+        FOLL[Follicular Route]
+        AQUE[Aqueous Pores]
+    end
+    
+    subgraph "Scale-Specific Effects"
+        NANO[Nanoscale: MW < 500 Da]
+        MICRO[Microscale: pH Match]
+        MACRO[Macroscale: Rheology]
+        TEMP[Temporal: τ_{release}]
+    end
+    
+    subgraph "Therapeutic Trace"
+        THER[⟨Therapeutic⟩ = Tr_{scales}(ρ̂_{formulation} ⊗ Ĝ_{propagator} ⊗ ρ̂_{skin})]
+    end
+    
+    HUM --> NANO
+    CER_ADD --> NANO
+    PEP --> MICRO
+    NIA --> NANO
+    
+    EMU --> INTER
+    GEL --> AQUE
+    SER --> TRANS
+    OIL --> INTER
+    
+    TRANS --> MICRO
+    INTER --> NANO
+    FOLL --> MACRO
+    AQUE --> MICRO
+    
+    NANO --> THER
+    MICRO --> THER
+    MACRO --> THER
+    TEMP --> THER
+    
+    style FORM fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    style THER fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style NANO fill:#fff3e0,stroke:#e65100
+    style MICRO fill:#f3e5f5,stroke:#6a1b9a
+    style MACRO fill:#e8f5e9,stroke:#2e7d32

@@ -1,0 +1,138 @@
+graph TB
+    subgraph "INTEGUMENTARY TENSOR FIELD HIERARCHY"
+        ROOT[Skin System Tensor Field]
+    end
+    
+    subgraph "SCALE DECOMPOSITION"
+        NANO[Nanoscale: Molecular Interactions]
+        MICRO[Microscale: Cellular Dynamics]
+        MACRO[Macroscale: Tissue Organization]
+        ORGAN[Organ Scale: System Integration]
+    end
+    
+    subgraph "NANOSCALE COMPONENTS [1-1000 nm]"
+        N1[Lipid Bilayers]
+        N2[Protein Conformations]
+        N3[Water Clusters]
+        N4[Ion Gradients]
+        N5[Molecular Recognition]
+    end
+    
+    subgraph "MICROSCALE COMPONENTS [1-100 micrometers]"
+        M1[Keratinocyte States]
+        M2[Fibroblast Activity]
+        M3[Melanocyte Function]
+        M4[Immune Cell Dynamics]
+        M5[Stem Cell Niches]
+    end
+    
+    subgraph "MACROSCALE COMPONENTS [100 micrometers - 1 cm]"
+        MA1[Epidermal Layers]
+        MA2[Dermal Structure]
+        MA3[Appendage Organization]
+        MA4[Vascular Networks]
+        MA5[Neural Innervation]
+    end
+    
+    subgraph "ORGAN SCALE COMPONENTS [1 cm and above]"
+        O1[Regional Variations]
+        O2[Systemic Integration]
+        O3[Environmental Interface]
+        O4[Homeostatic Control]
+        O5[Adaptive Responses]
+    end
+    
+    subgraph "TEMPORAL SCALES"
+        T1[Femtoseconds: Molecular Vibrations]
+        T2[Nanoseconds: Conformational Changes]
+        T3[Seconds: Enzymatic Reactions]
+        T4[Minutes: Signaling Cascades]
+        T5[Hours: Gene Expression]
+        T6[Days: Cell Division]
+        T7[Weeks: Tissue Remodeling]
+        T8[Months: Adaptation]
+    end
+    
+    subgraph "COUPLING MECHANISMS"
+        C1[Molecular to Cellular: Receptor Activation]
+        C2[Cellular to Tissue: Collective Behavior]
+        C3[Tissue to Organ: Mechanical Integration]
+        C4[Feedback Loops: Multi-scale Regulation]
+    end
+    
+    %% Hierarchical connections
+    ROOT --> NANO
+    ROOT --> MICRO
+    ROOT --> MACRO
+    ROOT --> ORGAN
+    
+    NANO --> N1
+    NANO --> N2
+    NANO --> N3
+    NANO --> N4
+    NANO --> N5
+    
+    MICRO --> M1
+    MICRO --> M2
+    MICRO --> M3
+    MICRO --> M4
+    MICRO --> M5
+    
+    MACRO --> MA1
+    MACRO --> MA2
+    MACRO --> MA3
+    MACRO --> MA4
+    MACRO --> MA5
+    
+    ORGAN --> O1
+    ORGAN --> O2
+    ORGAN --> O3
+    ORGAN --> O4
+    ORGAN --> O5
+    
+    %% Cross-scale coupling
+    N1 --> C1
+    N2 --> C1
+    C1 --> M1
+    C1 --> M2
+    
+    M1 --> C2
+    M2 --> C2
+    C2 --> MA1
+    C2 --> MA2
+    
+    MA1 --> C3
+    MA2 --> C3
+    C3 --> O1
+    C3 --> O2
+    
+    O4 --> C4
+    C4 --> MA1
+    C4 --> M1
+    C4 --> N1
+    
+    %% Temporal connections
+    T1 --> N1
+    T2 --> N2
+    T3 --> N5
+    T4 --> M1
+    T5 --> M2
+    T6 --> MA1
+    T7 --> O1
+    T8 --> O4
+    
+    %% Styling
+    classDef nano fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef micro fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef macro fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef organ fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef coupling fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    classDef temporal fill:#fafafa,stroke:#424242,stroke-width:1px
+    
+    class NANO,N1,N2,N3,N4,N5 nano
+    class MICRO,M1,M2,M3,M4,M5 micro
+    class MACRO,MA1,MA2,MA3,MA4,MA5 macro
+    class ORGAN,O1,O2,O3,O4,O5 organ
+    class C1,C2,C3,C4 coupling
+    class T1,T2,T3,T4,T5,T6,T7,T8 temporal
+

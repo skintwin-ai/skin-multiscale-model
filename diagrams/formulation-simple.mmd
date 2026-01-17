@@ -1,0 +1,110 @@
+graph TB
+    subgraph "FORMULATION DESIGN FRAMEWORK"
+        TITLE[Multiscale Formulation Strategy]
+    end
+    
+    subgraph "SKIN ANALYSIS"
+        SA1[Barrier Function Assessment]
+        SA2[Hydration Status]
+        SA3[Inflammatory State]
+        SA4[Age-related Changes]
+    end
+    
+    subgraph "MOLECULAR TARGETS"
+        MT1[Receptor Binding]
+        MT2[Enzyme Modulation]
+        MT3[Phase Transitions]
+        MT4[Stability Control]
+    end
+    
+    subgraph "ACTIVE INGREDIENTS"
+        AI1[Niacinamide]
+        AI2[Retinoids]
+        AI3[Vitamin C]
+        AI4[Peptides]
+        AI5[Hyaluronic Acid]
+    end
+    
+    subgraph "DELIVERY SYSTEM"
+        DS1[Vehicle Selection]
+        DS2[Penetration Enhancement]
+        DS3[Controlled Release]
+        DS4[Stability Maintenance]
+    end
+    
+    subgraph "CELLULAR EFFECTS"
+        CE1[Keratinocyte Function]
+        CE2[Fibroblast Activity]
+        CE3[Immune Modulation]
+        CE4[Stem Cell Support]
+    end
+    
+    subgraph "TISSUE OUTCOMES"
+        TO1[Barrier Enhancement]
+        TO2[Structural Integrity]
+        TO3[Mechanical Properties]
+        TO4[Overall Health]
+    end
+    
+    subgraph "VALIDATION"
+        V1[In Vitro Testing]
+        V2[Clinical Trials]
+        V3[Long-term Studies]
+        V4[Safety Assessment]
+    end
+    
+    %% Main flow connections
+    SA1 --> MT1
+    SA2 --> MT2
+    SA3 --> MT3
+    SA4 --> MT4
+    
+    MT1 --> AI1
+    MT2 --> AI2
+    MT3 --> AI3
+    MT4 --> AI4
+    
+    AI1 --> DS1
+    AI2 --> DS2
+    AI3 --> DS3
+    AI4 --> DS4
+    AI5 --> DS1
+    
+    DS1 --> CE1
+    DS2 --> CE2
+    DS3 --> CE3
+    DS4 --> CE4
+    
+    CE1 --> TO1
+    CE2 --> TO2
+    CE3 --> TO3
+    CE4 --> TO4
+    
+    TO1 --> V1
+    TO2 --> V2
+    TO3 --> V3
+    TO4 --> V4
+    
+    %% Feedback loops
+    V1 --> SA1
+    V2 --> SA2
+    V3 --> SA3
+    V4 --> SA4
+    
+    %% Styling
+    classDef analysis fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef molecular fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef ingredient fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef delivery fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef cellular fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef tissue fill:#fce4ec,stroke:#ad1457,stroke-width:2px
+    classDef validation fill:#e0f2f1,stroke:#00695c,stroke-width:2px
+    
+    class SA1,SA2,SA3,SA4 analysis
+    class MT1,MT2,MT3,MT4 molecular
+    class AI1,AI2,AI3,AI4,AI5 ingredient
+    class DS1,DS2,DS3,DS4 delivery
+    class CE1,CE2,CE3,CE4 cellular
+    class TO1,TO2,TO3,TO4 tissue
+    class V1,V2,V3,V4 validation
+

@@ -1,0 +1,131 @@
+graph TD
+    subgraph "Genetic Predisposition"
+        GP1[FLG Mutations → ↓Filaggrin]
+        GP2[SPINK5 → ↓Protease Inhibitor]
+        GP3[CARD11 → Immune Dysregulation]
+        GP4[IL-4R → Th2 Bias]
+        GP5[Epigenetic Modifications]
+    end
+    
+    subgraph "Barrier Deficiency Ξ^{AD}"
+        BD1[↓ Ceramide Diversity]
+        BD2[Abnormal Lipid Ratios]
+        BD3[|LCP⟩ → |Hex⟩ Shift]
+        BD4[Corneocyte Fragility]
+        BD5[B_{eff} < 0.3·B_{normal}]
+    end
+    
+    subgraph "Water Loss Cascade"
+        WL1[TEWL ↑ 3-5× Normal]
+        WL2[∇(a_w) Steep Gradient]
+        WL3[NMF Deficiency]
+        WL4[Xerosis Development]
+        WL5[Microfissure Formation]
+    end
+    
+    subgraph "Immune Activation"
+        IA1[TSLP Release ↑]
+        IA2[Th2 Skewing: IL-4/13]
+        IA3[IgE Production ↑]
+        IA4[Eosinophil Infiltration]
+        IA5[Mast Cell Degranulation]
+    end
+    
+    subgraph "Microbiome Dysbiosis"
+        MB1[S. aureus Colonization >90%]
+        MB2[↓ Microbial Diversity]
+        MB3[Biofilm Formation]
+        MB4[Superantigen Production]
+        MB5[δ-toxin → Mast Cells]
+    end
+    
+    subgraph "Itch-Scratch Cycle"
+        IS1[Pruritogen Release]
+        IS2[C-fiber Activation]
+        IS3[Mechanical Trauma σ_{ij}]
+        IS4[Further Barrier Damage]
+        IS5[Inflammation Amplification]
+    end
+    
+    subgraph "Disease States Λ^{AD}"
+        DS1[Λ^{acute}: Erythema, Vesicles]
+        DS2[Λ^{subacute}: Scaling, Crusting]
+        DS3[Λ^{chronic}: Lichenification]
+        DS4[Λ^{infected}: S. aureus dominant]
+        DS5[Λ^{remission}: Subclinical]
+    end
+    
+    subgraph "Therapeutic Restoration"
+        TR1[Emollients → Lipid Replacement]
+        TR2[Topical Steroids → ↓Inflammation]
+        TR3[Calcineurin Inhibitors]
+        TR4[JAK Inhibitors → Block Signaling]
+        TR5[Microbiome Modulation]
+    end
+    
+    subgraph "Barrier Repair Timeline"
+        BR1[Hours: Surface Lipid Film]
+        BR2[Days: ↓ TEWL Measurable]
+        BR3[Weeks: NMF Restoration]
+        BR4[Months: Ceramide Profile]
+        BR5[Long-term: Resilience ↑]
+    end
+    
+    GP1 --> BD1
+    GP1 --> WL3
+    GP2 --> BD4
+    GP3 --> IA1
+    GP4 --> IA2
+    
+    BD1 --> BD2
+    BD2 --> BD3
+    BD3 --> BD5
+    BD4 --> BD5
+    
+    BD5 --> WL1
+    WL1 --> WL2
+    WL3 --> WL2
+    WL2 --> WL4
+    WL4 --> WL5
+    
+    WL5 --> IA1
+    IA1 --> IA2
+    IA2 --> IA3
+    IA3 --> IA4
+    IA4 --> IA5
+    
+    BD5 --> MB1
+    MB1 --> MB2
+    MB2 --> MB3
+    MB3 --> MB4
+    MB4 --> MB5
+    MB5 --> IA5
+    
+    IA5 --> IS1
+    IS1 --> IS2
+    IS2 --> IS3
+    IS3 --> IS4
+    IS4 --> BD5
+    
+    WL5 --> DS1
+    IS4 --> DS2
+    IS3 --> DS3
+    MB4 --> DS4
+    TR1 --> DS5
+    
+    TR1 --> BD2
+    TR2 --> IA2
+    TR3 --> IA1
+    TR4 --> IA2
+    TR5 --> MB2
+    
+    TR1 --> BR1
+    BR1 --> BR2
+    BR2 --> BR3
+    BR3 --> BR4
+    BR4 --> BR5
+    
+    style GP1 fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px
+    style BD5 fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px
+    style MB1 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style BR5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

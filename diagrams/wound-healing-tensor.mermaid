@@ -1,0 +1,133 @@
+graph TD
+    subgraph "Injury Perturbation δΞ^{wound}"
+        W1[Mechanical Disruption σ_{ij}]
+        W2[Vascular Breach]
+        W3[Barrier Discontinuity B_{eff}→0]
+        W4[Cell Death Zone]
+        W5[∇(damage) Field Formation]
+    end
+    
+    subgraph "Phase 1: Hemostasis (0-1h)"
+        H1[Platelet Activation]
+        H2[Fibrin Mesh Formation]
+        H3[Vasoconstriction]
+        H4[Clot Matrix Assembly]
+        H5[τ_{hemostasis} ~ 10³ s]
+    end
+    
+    subgraph "Phase 2: Inflammation (1-72h)"
+        I1[Neutrophil Infiltration]
+        I2[∇(chemokine) Gradients]
+        I3[Macrophage M1 Activation]
+        I4[Debris Clearance]
+        I5[τ_{inflammatory} ~ 10⁵ s]
+    end
+    
+    subgraph "Phase 3: Proliferation (3-21d)"
+        P1[Keratinocyte Migration]
+        P2[Re-epithelialization Front]
+        P3[Granulation Tissue]
+        P4[Angiogenesis Ξ^{vascular}]
+        P5[τ_{proliferation} ~ 10⁶ s]
+    end
+    
+    subgraph "Molecular Signaling Cascades"
+        MS1[EGF/TGF-α Release]
+        MS2[VEGF Gradient ∇(VEGF)]
+        MS3[FGF-2 Diffusion]
+        MS4[PDGF Chemotaxis]
+        MS5[Matrix Synthesis Signals]
+    end
+    
+    subgraph "Cellular State Transitions"
+        CS1[Ψ_{basal} → Ψ_{migratory}]
+        CS2[EMT-like Transformation]
+        CS3[Hyperproliferative State]
+        CS4[Stem Cell Activation]
+        CS5[Fibroblast → Myofibroblast]
+    end
+    
+    subgraph "Tissue Architecture Rebuild"
+        TA1[Provisional Matrix]
+        TA2[Collagen I/III Deposition]
+        TA3[Basement Membrane Reform]
+        TA4[ℰ^{stratification} Restoration]
+        TA5[DEJ Reconstruction]
+    end
+    
+    subgraph "Phase 4: Remodeling (21d-1y)"
+        R1[Collagen Cross-linking]
+        R2[Matrix Reorganization]
+        R3[Scar Tissue Maturation]
+        R4[Tensile Strength Recovery]
+        R5[τ_{remodeling} ~ 10⁷ s]
+    end
+    
+    subgraph "Barrier Function Recovery"
+        BF1[Lipid Synthesis Restart]
+        BF2[Corneocyte Production]
+        BF3[|LCP⟩ Phase Assembly]
+        BF4[B_{eff} Progressive Rise]
+        BF5[TEWL Normalization]
+    end
+    
+    subgraph "Observable Healing Metrics"
+        M1[Wound Closure Rate: mm/day]
+        M2[Tensile Strength: % Normal]
+        M3[Vascular Density: vessels/mm²]
+        M4[Scar Quality Index]
+        M5[Barrier Recovery: B_{eff}(t)]
+    end
+    
+    W1 --> H1
+    W2 --> H1
+    W3 --> W5
+    W4 --> W5
+    
+    H1 --> H2 --> H3 --> H4
+    
+    H4 --> I1
+    W5 --> I2
+    I1 --> I3
+    I3 --> I4
+    
+    I4 --> P1
+    I2 --> MS1
+    MS1 --> CS1
+    CS1 --> P2
+    P2 --> P3
+    MS2 --> P4
+    
+    MS1 --> MS2 --> MS3 --> MS4 --> MS5
+    
+    CS1 --> CS2 --> CS3
+    CS3 --> CS4
+    MS4 --> CS5
+    
+    P3 --> TA1
+    CS5 --> TA2
+    P2 --> TA3
+    CS4 --> TA4
+    TA3 --> TA5
+    
+    TA2 --> R1
+    R1 --> R2
+    R2 --> R3
+    R3 --> R4
+    
+    TA4 --> BF1
+    BF1 --> BF2
+    BF2 --> BF3
+    BF3 --> BF4
+    BF4 --> BF5
+    
+    P2 --> M1
+    R4 --> M2
+    P4 --> M3
+    R3 --> M4
+    BF4 --> M5
+    
+    style W1 fill:#ff5252,stroke:#d32f2f,stroke-width:3px
+    style I2 fill:#ff9800,stroke:#e65100,stroke-width:2px
+    style P2 fill:#4caf50,stroke:#2e7d32,stroke-width:2px
+    style BF5 fill:#c8e6c9,stroke:#388e3c,stroke-width:3px

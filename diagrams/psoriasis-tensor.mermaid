@@ -1,0 +1,141 @@
+graph TD
+    subgraph "Genetic Susceptibility"
+        GS1[HLA-Cw6 Association]
+        GS2[PSORS1-9 Loci]
+        GS3[IL23R Variants]
+        GS4[CARD14 Mutations]
+        GS5[Epigenetic Triggers]
+    end
+    
+    subgraph "Hyperproliferation Ξ^{psoriasis}"
+        HP1[τ_{turnover} 3-4d vs 28d]
+        HP2[↑ Mitotic Rate ×10]
+        HP3[Parakeratosis]
+        HP4[Acanthosis Development]
+        HP5[Rete Ridge Elongation]
+    end
+    
+    subgraph "Immune Axis Activation"
+        IM1[Dendritic Cell → IL-23]
+        IM2[Th17 Differentiation]
+        IM3[IL-17A/F Production]
+        IM4[TNF-α Amplification]
+        IM5[Neutrophil Infiltration]
+    end
+    
+    subgraph "Vascular Changes"
+        VC1[Angiogenesis ↑]
+        VC2[Capillary Tortuosity]
+        VC3[Endothelial Activation]
+        VC4[Auspitz Sign]
+        VC5[∇(VEGF) Gradient]
+    end
+    
+    subgraph "Abnormal Differentiation"
+        AD1[K16/K17 Expression]
+        AD2[↓ K1/K10 Normal Markers]
+        AD3[Involucrin Premature]
+        AD4[Loricrin Deficiency]
+        AD5[T^{kornification} Disrupted]
+    end
+    
+    subgraph "Barrier Dysfunction"
+        BF1[Lipid Composition Altered]
+        BF2[Ceramide Chain Length ↓]
+        BF3[TEWL ↑ in Lesions]
+        BF4[Antimicrobial Peptides ↑↑]
+        BF5[pH Alkaline Shift]
+    end
+    
+    subgraph "Plaque Characteristics Λ^{plaque}"
+        PL1[Λ^{erythematous}: Red base]
+        PL2[Λ^{squamous}: Silver scales]
+        PL3[Λ^{thickness}: Elevation]
+        PL4[Λ^{border}: Sharp demarcation]
+        PL5[Koebner Phenomenon]
+    end
+    
+    subgraph "Systemic Manifestations"
+        SM1[Psoriatic Arthritis 30%]
+        SM2[Cardiovascular Risk ↑]
+        SM3[Metabolic Syndrome]
+        SM4[Depression Comorbidity]
+        SM5[Systemic Inflammation]
+    end
+    
+    subgraph "Therapeutic Modulation"
+        TM1[Topical Steroids → ↓Proliferation]
+        TM2[Vitamin D → Differentiation]
+        TM3[Retinoids → Normalize Turnover]
+        TM4[Biologics → Block IL-17/23]
+        TM5[JAK Inhibitors → Signal Block]
+    end
+    
+    subgraph "Response Timeline"
+        RT1[Week 1-2: Inflammation ↓]
+        RT2[Week 4: Scale Reduction]
+        RT3[Week 8: Thickness ↓]
+        RT4[Week 12: PASI-75]
+        RT5[Maintenance Phase]
+    end
+    
+    GS1 --> IM1
+    GS3 --> IM1
+    GS4 --> HP1
+    
+    HP1 --> HP2
+    HP2 --> HP3
+    HP3 --> HP4
+    HP4 --> HP5
+    
+    IM1 --> IM2
+    IM2 --> IM3
+    IM3 --> IM4
+    IM4 --> IM5
+    
+    IM3 --> VC1
+    VC1 --> VC2
+    VC2 --> VC3
+    VC3 --> VC4
+    IM4 --> VC5
+    
+    HP2 --> AD1
+    AD1 --> AD2
+    HP3 --> AD3
+    AD3 --> AD4
+    AD4 --> AD5
+    
+    AD5 --> BF1
+    BF1 --> BF2
+    BF2 --> BF3
+    HP3 --> BF4
+    BF4 --> BF5
+    
+    HP4 --> PL1
+    HP3 --> PL2
+    HP5 --> PL3
+    IM5 --> PL4
+    HP1 --> PL5
+    
+    IM4 --> SM1
+    IM3 --> SM2
+    SM2 --> SM3
+    IM1 --> SM4
+    IM4 --> SM5
+    
+    TM1 --> HP2
+    TM2 --> AD5
+    TM3 --> HP1
+    TM4 --> IM3
+    TM5 --> IM2
+    
+    TM1 --> RT1
+    RT1 --> RT2
+    RT2 --> RT3
+    RT3 --> RT4
+    RT4 --> RT5
+    
+    style GS1 fill:#e1bee7,stroke:#6a1b9a,stroke-width:3px
+    style HP1 fill:#ff9800,stroke:#e65100,stroke-width:3px
+    style IM3 fill:#f44336,stroke:#d32f2f,stroke-width:2px
+    style RT5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

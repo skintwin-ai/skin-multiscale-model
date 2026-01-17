@@ -1,0 +1,59 @@
+flowchart TD
+    subgraph "Master Equation Components"
+        ME[∂_t Ξ^{skin} = Σ_n τ_n^{-1} ℒ_n Ξ^{n} + Σ_{nm} Γ_{nm} [Ξ^{n}, Ξ^{m}]]
+    end
+    
+    subgraph "Liouvillian Operators ℒ_n"
+        L1[ℒ_{molecular}: Diffusion + Reaction]
+        L2[ℒ_{cellular}: Division + Death]
+        L3[ℒ_{tissue}: Remodeling + Repair]
+        L4[ℒ_{organ}: Turnover + Adaptation]
+    end
+    
+    subgraph "Timescale Inverses τ_n^{-1}"
+        T1[τ_{molecular}^{-1} ~ 10^3 s^{-1}]
+        T2[τ_{cellular}^{-1} ~ 10^{-1} s^{-1}]
+        T3[τ_{tissue}^{-1} ~ 10^{-4} s^{-1}]
+        T4[τ_{organ}^{-1} ~ 10^{-7} s^{-1}]
+    end
+    
+    subgraph "Commutator Coupling Γ_{nm}"
+        C1[Γ_{mol-cell}: [Ξ^{mol}, Ξ^{cell}]]
+        C2[Γ_{cell-tiss}: [Ξ^{cell}, Ξ^{tiss}]]
+        C3[Γ_{tiss-org}: [Ξ^{tiss}, Ξ^{org}]]
+        C4[Γ_{mol-tiss}: [Ξ^{mol}, Ξ^{tiss}]]
+    end
+    
+    subgraph "State Evolution"
+        XI0[Ξ^{skin}(t=0)]
+        XI1[Ξ^{skin}(t=τ_{mol})]
+        XI2[Ξ^{skin}(t=τ_{cell})]
+        XI3[Ξ^{skin}(t=τ_{tiss})]
+        XI4[Ξ^{skin}(t=τ_{org})]
+    end
+    
+    L1 --> T1
+    L2 --> T2
+    L3 --> T3
+    L4 --> T4
+    
+    T1 --> ME
+    T2 --> ME
+    T3 --> ME
+    T4 --> ME
+    
+    C1 --> ME
+    C2 --> ME
+    C3 --> ME
+    C4 --> ME
+    
+    XI0 -->|Fast dynamics| XI1
+    XI1 -->|Cell response| XI2
+    XI2 -->|Tissue adaptation| XI3
+    XI3 -->|Organ remodeling| XI4
+    
+    XI4 -.->|Feedback| XI0
+    
+    style ME fill:#e1f5fe,stroke:#0277bd,stroke-width:4px
+    style XI0 fill:#ffebee,stroke:#c62828
+    style XI4 fill:#c8e6c9,stroke:#2e7d32

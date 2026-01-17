@@ -1,0 +1,127 @@
+graph TD
+    subgraph "Water Activity Landscape a_w(x,y,z)"
+        WA1[Surface a_w ~ 0.3-0.5]
+        WA2[SC Upper a_w ~ 0.7]
+        WA3[SC Lower a_w ~ 0.85]
+        WA4[SG/SC Junction a_w ~ 0.95]
+        WA5[Viable Epidermis a_w ~ 0.99]
+    end
+    
+    subgraph "Molecular Water States"
+        MW1[Bulk Water: Free H₂O]
+        MW2[Primary Bound: Protein/Lipid]
+        MW3[Secondary Bound: NMF Complex]
+        MW4[Structural Water: Lamellar]
+        MW5[Transition States: H-bond Networks]
+    end
+    
+    subgraph "Natural Moisturizing Factor Tensor"
+        NMF1[Filaggrin → Amino Acids]
+        NMF2[PCA (12%): Pyrrolidone Carboxylic]
+        NMF3[Urea (7%): Osmolyte]
+        NMF4[Lactate (12%): pH Buffer]
+        NMF5[Ξ^{NMF} Collective State]
+    end
+    
+    subgraph "Water Transport Operators"
+        WT1[J_{passive} = -D·∇a_w]
+        WT2[J_{AQP3} = P_{f}·Δa_w]
+        WT3[J_{tight} = Limited by TJ]
+        WT4[J_{total} = Σ J_i]
+        WT5[τ_{equilibration} ~ 10⁴ s]
+    end
+    
+    subgraph "Humectant Intervention Dynamics"
+        HI1[Glycerin: 3 H₂O/molecule]
+        HI2[Hyaluronic Acid: 1000× weight]
+        HI3[Urea: Penetration + Binding]
+        HI4[Polyglutamic Acid: Film Former]
+        HI5[∇(a_w) Redistribution]
+    end
+    
+    subgraph "Cellular Osmoregulation Ψ_{osmotic}"
+        CO1[Volume Sensing: TRPV4]
+        CO2[Osmolyte Synthesis ↑]
+        CO3[AQP3 Expression Modulation]
+        CO4[Tight Junction Adjustment]
+        CO5[K⁺/Cl⁻ Channel Activation]
+    end
+    
+    subgraph "Phase State Coupling"
+        PS1[a_w < 0.85: |LCP⟩ Stable]
+        PS2[0.85 < a_w < 0.95: Mixed Phase]
+        PS3[a_w > 0.95: |Fluid⟩ Risk]
+        PS4[Critical a_w_{transition}]
+        PS5[B_{eff} = f(a_w, Ξ^{lamellar})]
+    end
+    
+    subgraph "Barrier-Hydration Feedback"
+        BH1[↓a_w → ↑Lipid Synthesis]
+        BH2[↑TEWL → ↑NMF Production]
+        BH3[Optimal a_w → B_{eff} Max]
+        BH4[Over-hydration → B_{eff} ↓]
+        BH5[Homeostatic Set Point]
+    end
+    
+    subgraph "Observable Hydration States"
+        OH1[Capacitance: ε ∝ a_w]
+        OH2[TEWL: g/m²/h]
+        OH3[Elasticity: Young's Modulus]
+        OH4[Surface Texture]
+        OH5[Clinical Hydration Score]
+    end
+    
+    WA1 --> MW1
+    WA2 --> MW2
+    WA3 --> MW3
+    WA4 --> MW4
+    WA5 --> MW5
+    
+    NMF1 --> NMF2
+    NMF1 --> NMF3
+    NMF1 --> NMF4
+    NMF2 --> NMF5
+    NMF3 --> NMF5
+    NMF4 --> NMF5
+    
+    MW1 --> WT1
+    MW1 --> WT2
+    MW2 --> WT3
+    WT1 --> WT4
+    WT2 --> WT4
+    WT3 --> WT4
+    
+    HI1 --> MW3
+    HI2 --> MW1
+    HI3 --> MW3
+    HI4 --> MW2
+    HI1 --> HI5
+    
+    WT4 --> CO1
+    CO1 --> CO2
+    CO2 --> CO3
+    CO3 --> CO4
+    CO1 --> CO5
+    
+    WA3 --> PS1
+    WA4 --> PS2
+    WA5 --> PS3
+    PS1 --> PS4
+    PS4 --> PS5
+    
+    PS5 --> BH1
+    WT4 --> BH2
+    PS1 --> BH3
+    PS3 --> BH4
+    BH3 --> BH5
+    
+    BH5 --> OH1
+    WT4 --> OH2
+    PS5 --> OH3
+    HI5 --> OH4
+    OH1 --> OH5
+    
+    style WA1 fill:#bbdefb,stroke:#1976d2,stroke-width:3px
+    style NMF5 fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    style BH5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style PS4 fill:#fff9c4,stroke:#f57f17,stroke-width:2px

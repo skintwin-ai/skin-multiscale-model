@@ -1,0 +1,123 @@
+graph TD
+    subgraph "Vitamin C Forms & Stability"
+        VC1[L-Ascorbic Acid (AA)]
+        VC2[Dehydroascorbic Acid (DHA)]
+        VC3[Ascorbyl Palmitate]
+        VC4[Sodium Ascorbyl Phosphate]
+        VC5[3-O-Ethyl Ascorbic Acid]
+    end
+    
+    subgraph "Transport Mechanisms"
+        TM1[SVCT1/2: Active Na⁺-coupled]
+        TM2[GLUT1/3: DHA Transport]
+        TM3[∇[AA] Gradient Formation]
+        TM4[Intracellular Reduction]
+        TM5[K_m ~ 10^{-5} M]
+    end
+    
+    subgraph "Molecular Cofactor Roles"
+        MC1[Prolyl Hydroxylase Cofactor]
+        MC2[Lysyl Hydroxylase Activation]
+        MC3[Fe²⁺ → Fe³⁺ Reduction]
+        MC4[ROS Scavenging: •OH, O₂⁻]
+        MC5[α-Ketoglutarate Coupling]
+    end
+    
+    subgraph "Collagen Synthesis Enhancement"
+        CS1[Pro-collagen → Collagen]
+        CS2[Hydroxyproline Formation]
+        CS3[Hydroxylysine Cross-links]
+        CS4[Triple Helix Stabilization]
+        CS5[τ_{collagen} ~ 10⁴ s]
+    end
+    
+    subgraph "Cellular Effects Ψ_{vitC}"
+        CE1[Fibroblast: ↑ COL1A1/COL3A1]
+        CE2[↓ MMP-1 Expression]
+        CE3[↑ TIMP-1 Production]
+        CE4[Melanocyte: ↓ Tyrosinase]
+        CE5[Keratinocyte: ↑ Differentiation]
+    end
+    
+    subgraph "Antioxidant Network"
+        AO1[Direct ROS Neutralization]
+        AO2[Vitamin E Regeneration]
+        AO3[GSH System Support]
+        AO4[∇(oxidative stress) ↓]
+        AO5[Lipid Peroxidation Block]
+    end
+    
+    subgraph "Tissue Level Changes"
+        TL1[Dermal Density ↑]
+        TL2[DEJ Undulation ↑]
+        TL3[Papillary Dermis Volume]
+        TL4[Elastic Fiber Quality]
+        TL5[τ_{tissue} ~ 10⁶ s]
+    end
+    
+    subgraph "Formulation Challenges"
+        FC1[pH < 3.5 for Stability]
+        FC2[Oxidation Prevention]
+        FC3[Penetration Enhancement]
+        FC4[Reservoir Effect Design]
+        FC5[Combination Incompatibilities]
+    end
+    
+    subgraph "Observable Clinical Effects"
+        OC1[Week 2: Brightness ↑]
+        OC2[Week 6: Fine Lines ↓]
+        OC3[Week 12: Pigmentation ↓]
+        OC4[Month 6: Elasticity ↑]
+        OC5[Photoprotection Enhancement]
+    end
+    
+    VC1 --> TM1
+    VC2 --> TM2
+    VC4 --> TM1
+    TM1 --> TM3
+    TM2 --> TM4
+    
+    TM3 --> MC1
+    TM4 --> MC2
+    VC1 --> MC3
+    VC1 --> MC4
+    MC1 --> MC5
+    
+    MC1 --> CS1
+    MC2 --> CS2
+    MC2 --> CS3
+    CS2 --> CS4
+    
+    CS1 --> CE1
+    CE1 --> CE2
+    CE1 --> CE3
+    MC4 --> CE4
+    MC3 --> CE5
+    
+    MC4 --> AO1
+    AO1 --> AO2
+    AO2 --> AO3
+    AO3 --> AO4
+    AO4 --> AO5
+    
+    CE1 --> TL1
+    CS4 --> TL2
+    TL1 --> TL3
+    CE3 --> TL4
+    
+    VC1 --> FC1
+    VC1 --> FC2
+    FC1 --> FC3
+    FC3 --> FC4
+    VC1 --> FC5
+    
+    AO4 --> OC1
+    TL1 --> OC2
+    CE4 --> OC3
+    TL4 --> OC4
+    AO1 --> OC5
+    
+    style VC1 fill:#fff9c4,stroke:#f57f17,stroke-width:3px
+    style MC1 fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    style TL1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style FC1 fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px

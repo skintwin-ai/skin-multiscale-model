@@ -1,0 +1,125 @@
+graph TD
+    subgraph "Young State Ξ^{young} (t=20y)"
+        Y1[Robust ∇_{nano}Φ Gradients]
+        Y2[Efficient K^{nano→micro} Coupling]
+        Y3[Optimal τ_{turnover} = 28d]
+        Y4[B_{eff} = B_{max}]
+        Y5[|LCP⟩ Phase Dominance]
+    end
+    
+    subgraph "Progressive Deterioration Operators"
+        D1[𝒟_{oxidative}: ROS Accumulation]
+        D2[𝒟_{glycation}: AGE Formation]
+        D3[𝒟_{telomere}: Replicative Limit]
+        D4[𝒟_{mitochondrial}: ATP Decline]
+        D5[𝒟_{epigenetic}: Methylation Drift]
+    end
+    
+    subgraph "Molecular Scale Degradation"
+        M1[↓ Collagen I/III Ratio]
+        M2[Elastin Fragmentation]
+        M3[↓ Hyaluronic Acid MW]
+        M4[Lipid Peroxidation]
+        M5[DNA Damage Accumulation]
+    end
+    
+    subgraph "Cellular Dysfunction Ψ_{aged}"
+        C1[↓ Proliferative Capacity]
+        C2[Senescence Burden ↑]
+        C3[↓ Lamellar Body Production]
+        C4[Impaired Differentiation]
+        C5[τ_{cellular} → ∞]
+    end
+    
+    subgraph "Tissue Disorganization"
+        T1[DEJ Flattening: ↓ Rete Ridges]
+        T2[Epidermal Thinning]
+        T3[Dermal Atrophy]
+        T4[↓ Vascular Networks]
+        T5[Irregular ℰ^{stratification}]
+    end
+    
+    subgraph "Barrier Deterioration"
+        B1[↓ Ceramide Diversity]
+        B2[|LCP⟩ → |Hex⟩ Shift]
+        B3[↑ TEWL Progressive]
+        B4[B_{eff} < 0.5·B_{young}]
+        B5[∇(a_w) Dysregulation]
+    end
+    
+    subgraph "Aged State Ξ^{aged} (t=80y)"
+        A1[Flattened ∇_{nano}Φ]
+        A2[Decoupled K^{nano→micro}]
+        A3[τ_{turnover} > 45d]
+        A4[B_{eff} = B_{min}]
+        A5[Phase Incoherence]
+    end
+    
+    subgraph "Intervention Strategies"
+        I1[Retinoids: Restore T^{kornification}]
+        I2[Peptides: ↑ Collagen Synthesis]
+        I3[Antioxidants: Counter 𝒟_{oxidative}]
+        I4[Ceramides: Rebuild Ξ^{lamellar}]
+        I5[Growth Factors: Reactivate Coupling]
+    end
+    
+    subgraph "Observable Metrics"
+        OM1[Wrinkle Depth ∝ 1/[Collagen]]
+        OM2[Elasticity ∝ ⟨Ξ|Ê|Ξ⟩]
+        OM3[Hydration ∝ ∫a_w·dV]
+        OM4[Luminosity ∝ Surface Regularity]
+        OM5[Fragility ∝ 1/B_{eff}]
+    end
+    
+    Y1 --> D1
+    Y2 --> D2
+    Y3 --> D3
+    Y4 --> D4
+    Y5 --> D5
+    
+    D1 --> M1
+    D2 --> M2
+    D3 --> M3
+    D4 --> M4
+    D5 --> M5
+    
+    M1 --> C1
+    M2 --> C2
+    M3 --> C3
+    M4 --> C4
+    M5 --> C5
+    
+    C1 --> T1
+    C2 --> T2
+    C3 --> T3
+    C4 --> T4
+    C5 --> T5
+    
+    T1 --> B1
+    T2 --> B2
+    T3 --> B3
+    T4 --> B4
+    T5 --> B5
+    
+    B1 --> A1
+    B2 --> A2
+    B3 --> A3
+    B4 --> A4
+    B5 --> A5
+    
+    I1 -.->|Partially restores| C4
+    I2 -.->|Stimulates| M1
+    I3 -.->|Neutralizes| D1
+    I4 -.->|Rebuilds| B1
+    I5 -.->|Reactivates| Y2
+    
+    A1 --> OM1
+    A2 --> OM2
+    A3 --> OM3
+    A4 --> OM4
+    A5 --> OM5
+    
+    style Y1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style D1 fill:#ff9800,stroke:#e65100,stroke-width:2px
+    style A1 fill:#ffcdd2,stroke:#d32f2f,stroke-width:3px
+    style I1 fill:#e1f5fe,stroke:#0277bd,stroke-width:2px

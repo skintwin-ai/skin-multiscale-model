@@ -1,0 +1,130 @@
+graph TD
+    subgraph "UV-Induced Signaling"
+        UV1[UV → DNA Damage]
+        UV2[p53 Activation]
+        UV3[POMC → α-MSH]
+        UV4[MC1R Binding]
+        UV5[cAMP ↑ → PKA]
+    end
+    
+    subgraph "Transcriptional Activation"
+        TA1[MITF Master Regulator]
+        TA2[TYR Gene Expression]
+        TA3[TYRP1/TYRP2 Induction]
+        TA4[PMEL17 Upregulation]
+        TA5[τ_{transcription} ~ 10³ s]
+    end
+    
+    subgraph "Melanosome Biogenesis"
+        MB1[Stage I: Amorphous]
+        MB2[Stage II: Fibrillar Matrix]
+        MB3[Stage III: Melanin Deposition]
+        MB4[Stage IV: Fully Melanized]
+        MB5[τ_{maturation} ~ 10⁵ s]
+    end
+    
+    subgraph "Enzymatic Cascade"
+        EC1[Tyrosine → L-DOPA]
+        EC2[L-DOPA → Dopaquinone]
+        EC3[Eumelanin Path (Brown/Black)]
+        EC4[Pheomelanin Path (Red/Yellow)]
+        EC5[Mixed Melanin Types]
+    end
+    
+    subgraph "Melanin Transfer Ψ_{transfer}"
+        MT1[Dendrite Extension]
+        MT2[Melanin-PMEL Complex]
+        MT3[Exocytosis/Phagocytosis]
+        MT4[Keratinocyte Uptake]
+        MT5[Perinuclear Positioning]
+    end
+    
+    subgraph "Distribution Pattern"
+        DP1[Basal Layer Production]
+        DP2[Suprabasal Migration]
+        DP3[Melanin Cap Formation]
+        DP4[UV Shield Effectiveness]
+        DP5[SPF_{natural} ~ 2-4]
+    end
+    
+    subgraph "Regulatory Feedback"
+        RF1[Melanin → ↓ UV Penetration]
+        RF2[↓ DNA Damage → ↓ p53]
+        RF3[Paracrine Factors]
+        RF4[Seasonal Adaptation]
+        RF5[Hormonal Modulation]
+    end
+    
+    subgraph "Depigmenting Interventions"
+        DI1[Tyrosinase Inhibitors]
+        DI2[Melanin Transfer Block]
+        DI3[Accelerated Turnover]
+        DI4[Melanosome Disruption]
+        DI5[Anti-inflammatory]
+    end
+    
+    subgraph "Pigmentation Disorders"
+        PD1[Melasma: Hormonal Trigger]
+        PD2[PIH: Inflammatory]
+        PD3[Solar Lentigines: Chronic UV]
+        PD4[Vitiligo: Autoimmune]
+        PD5[Heterogeneous Patterns]
+    end
+    
+    UV1 --> UV2
+    UV2 --> UV3
+    UV3 --> UV4
+    UV4 --> UV5
+    
+    UV5 --> TA1
+    TA1 --> TA2
+    TA1 --> TA3
+    TA1 --> TA4
+    
+    TA4 --> MB1
+    MB1 --> MB2
+    MB2 --> MB3
+    MB3 --> MB4
+    
+    TA2 --> EC1
+    EC1 --> EC2
+    EC2 --> EC3
+    EC2 --> EC4
+    EC3 --> EC5
+    EC4 --> EC5
+    
+    MB4 --> MT1
+    MT1 --> MT2
+    MT2 --> MT3
+    MT3 --> MT4
+    MT4 --> MT5
+    
+    MT5 --> DP1
+    DP1 --> DP2
+    DP2 --> DP3
+    DP3 --> DP4
+    DP4 --> DP5
+    
+    DP4 --> RF1
+    RF1 --> RF2
+    RF2 --> UV2
+    TA1 --> RF3
+    RF3 --> RF4
+    RF4 --> RF5
+    
+    DI1 -->|Blocks| EC1
+    DI2 -->|Inhibits| MT3
+    DI3 -->|Accelerates| DP2
+    DI4 -->|Disrupts| MB3
+    DI5 -->|Reduces| UV2
+    
+    RF5 --> PD1
+    UV2 --> PD2
+    UV1 --> PD3
+    TA1 --> PD4
+    MT3 --> PD5
+    
+    style UV1 fill:#ffeb3b,stroke:#f57f17,stroke-width:3px
+    style TA1 fill:#e1bee7,stroke:#6a1b9a,stroke-width:2px
+    style MB4 fill:#795548,stroke:#3e2723,stroke-width:2px
+    style DI1 fill:#e1f5fe,stroke:#0277bd,stroke-width:3px

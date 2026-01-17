@@ -1,0 +1,159 @@
+graph TB
+    subgraph "MULTISCALE TEMPORAL DYNAMICS"
+        TITLE[Time Evolution Across Scales]
+    end
+    
+    subgraph "FEMTOSECOND TO NANOSECOND [10^-15 to 10^-9 s]"
+        FS1[Molecular Vibrations]
+        FS2[Electronic Transitions]
+        FS3[Conformational Fluctuations]
+        FS4[Hydrogen Bond Dynamics]
+    end
+    
+    subgraph "MICROSECOND TO MILLISECOND [10^-6 to 10^-3 s]"
+        MS1[Protein Folding]
+        MS2[Enzyme Catalysis]
+        MS3[Ion Channel Gating]
+        MS4[Membrane Fusion]
+    end
+    
+    subgraph "SECOND TO MINUTE [1 to 60 s]"
+        SM1[Signal Transduction]
+        SM2[Metabolic Reactions]
+        SM3[Calcium Waves]
+        SM4[Cytoskeletal Reorganization]
+    end
+    
+    subgraph "HOUR TO DAY [3600 to 86400 s]"
+        HD1[Gene Expression]
+        HD2[Protein Synthesis]
+        HD3[Cell Division]
+        HD4[Circadian Rhythms]
+    end
+    
+    subgraph "WEEK TO MONTH [604800 to 2592000 s]"
+        WM1[Tissue Remodeling]
+        WM2[Barrier Maturation]
+        WM3[Wound Healing]
+        WM4[Adaptation Responses]
+    end
+    
+    subgraph "MONTH TO YEAR [2592000 to 31536000 s]"
+        MY1[Seasonal Adaptation]
+        MY2[Aging Processes]
+        MY3[Long-term Memory]
+        MY4[Structural Changes]
+    end
+    
+    subgraph "CROSS-SCALE COUPLING"
+        CC1[Fast-to-Slow Propagation]
+        CC2[Slow-to-Fast Modulation]
+        CC3[Temporal Synchronization]
+        CC4[Rhythmic Coordination]
+    end
+    
+    subgraph "PERTURBATION RESPONSES"
+        PR1[Immediate: Molecular Response]
+        PR2[Rapid: Cellular Activation]
+        PR3[Intermediate: Tissue Adaptation]
+        PR4[Long-term: System Remodeling]
+    end
+    
+    subgraph "HOMEOSTATIC CONTROL"
+        HC1[Fast Feedback Loops]
+        HC2[Intermediate Regulation]
+        HC3[Slow Adaptation]
+        HC4[Memory Formation]
+    end
+    
+    %% Temporal progression
+    FS1 --> MS1
+    FS2 --> MS2
+    FS3 --> MS3
+    FS4 --> MS4
+    
+    MS1 --> SM1
+    MS2 --> SM2
+    MS3 --> SM3
+    MS4 --> SM4
+    
+    SM1 --> HD1
+    SM2 --> HD2
+    SM3 --> HD3
+    SM4 --> HD4
+    
+    HD1 --> WM1
+    HD2 --> WM2
+    HD3 --> WM3
+    HD4 --> WM4
+    
+    WM1 --> MY1
+    WM2 --> MY2
+    WM3 --> MY3
+    WM4 --> MY4
+    
+    %% Cross-scale coupling
+    FS1 --> CC1
+    MS1 --> CC1
+    SM1 --> CC1
+    CC1 --> HD1
+    
+    MY1 --> CC2
+    WM1 --> CC2
+    HD1 --> CC2
+    CC2 --> SM1
+    
+    HD4 --> CC3
+    WM4 --> CC3
+    CC3 --> SM4
+    CC3 --> MS4
+    
+    FS4 --> CC4
+    MS4 --> CC4
+    SM4 --> CC4
+    HD4 --> CC4
+    
+    %% Perturbation responses
+    FS1 --> PR1
+    MS1 --> PR2
+    SM1 --> PR2
+    HD1 --> PR3
+    WM1 --> PR4
+    
+    %% Homeostatic control
+    PR1 --> HC1
+    PR2 --> HC2
+    PR3 --> HC3
+    PR4 --> HC4
+    
+    HC1 --> FS1
+    HC2 --> SM1
+    HC3 --> HD1
+    HC4 --> WM1
+    
+    %% Memory and adaptation
+    HC4 --> MY3
+    MY3 --> HC3
+    MY2 --> HC4
+    
+    %% Styling
+    classDef ultrafast fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef fast fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef medium fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef slow fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef veryslow fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef ultraslow fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef coupling fill:#fce4ec,stroke:#ad1457,stroke-width:3px
+    classDef perturbation fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef homeostatic fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
+    
+    class FS1,FS2,FS3,FS4 ultrafast
+    class MS1,MS2,MS3,MS4 fast
+    class SM1,SM2,SM3,SM4 medium
+    class HD1,HD2,HD3,HD4 slow
+    class WM1,WM2,WM3,WM4 veryslow
+    class MY1,MY2,MY3,MY4 ultraslow
+    class CC1,CC2,CC3,CC4 coupling
+    class PR1,PR2,PR3,PR4 perturbation
+    class HC1,HC2,HC3,HC4 homeostatic
+

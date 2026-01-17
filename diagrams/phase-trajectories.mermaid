@@ -1,0 +1,80 @@
+graph LR
+    subgraph "Initial State Space"
+        INIT[Ξ^{initial}<br/>Compromised Barrier]
+        S1[Low |LCP⟩ Amplitude]
+        S2[High TEWL State]
+        S3[Disrupted ∇(a_w)]
+        S4[ρ_{corneocyte} < ρ_c]
+    end
+    
+    subgraph "Intervention Operators"
+        OP1[Humectant Operator Ĥ_{hum}]
+        OP2[Ceramide Operator Ĉ_{cer}]
+        OP3[Occlusive Operator Ô_{occl}]
+        OP4[Peptide Operator P̂_{pep}]
+    end
+    
+    subgraph "Phase Space Evolution Paths"
+        PATH1[Hydration Trajectory:<br/>Ξ → Ĥ_{hum} → ∇(a_w)↑ → Ψ_{cell}↑]
+        PATH2[Lipid Restoration:<br/>Ξ → Ĉ_{cer} → |LCP⟩↑ → B_{eff}↑]
+        PATH3[Occlusion Path:<br/>Ξ → Ô_{occl} → TEWL↓ → a_w equilibrium]
+        PATH4[Signaling Cascade:<br/>Ξ → P̂_{pep} → T^{kornification}↑ → ρ_{corneocyte}↑]
+    end
+    
+    subgraph "Intermediate States"
+        INT1[Ξ^{hydrated}<br/>∇(a_w) Normalized]
+        INT2[Ξ^{lipid-rich}<br/>Lamellar Enhanced]
+        INT3[Ξ^{occluded}<br/>Flux Reduced]
+        INT4[Ξ^{stimulated}<br/>Differentiation Active]
+    end
+    
+    subgraph "Convergence Manifold"
+        CONV[Λ^{homeostatic}:<br/>Optimal State Space]
+        TARG1[|LCP⟩ > 0.7]
+        TARG2[B_{eff} > B_{critical}]
+        TARG3[∇(a_w) = ∇^{physiologic}]
+        TARG4[ρ_{corneocyte} > ρ_c]
+    end
+    
+    subgraph "Target State"
+        FINAL[Ξ^{homeostatic}<br/>Barrier Restored]
+    end
+    
+    INIT --> S1
+    INIT --> S2
+    INIT --> S3
+    INIT --> S4
+    
+    S3 --> OP1
+    S1 --> OP2
+    S2 --> OP3
+    S4 --> OP4
+    
+    OP1 --> PATH1
+    OP2 --> PATH2
+    OP3 --> PATH3
+    OP4 --> PATH4
+    
+    PATH1 --> INT1
+    PATH2 --> INT2
+    PATH3 --> INT3
+    PATH4 --> INT4
+    
+    INT1 --> CONV
+    INT2 --> CONV
+    INT3 --> CONV
+    INT4 --> CONV
+    
+    CONV --> TARG1
+    CONV --> TARG2
+    CONV --> TARG3
+    CONV --> TARG4
+    
+    TARG1 --> FINAL
+    TARG2 --> FINAL
+    TARG3 --> FINAL
+    TARG4 --> FINAL
+    
+    style INIT fill:#ffebee,stroke:#c62828,stroke-width:3px
+    style CONV fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+    style FINAL fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

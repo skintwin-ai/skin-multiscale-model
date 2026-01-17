@@ -1,0 +1,98 @@
+graph TD
+    subgraph "Nanoscale: NAD+ Cofactor Dynamics"
+        N1[Niacinamide MW=122.12 Da]
+        N2[NAD+ Synthesis Pathway]
+        N3[NADH/NAD+ Ratio Shift]
+        N4[Sirtuin Activation]
+        N5[∇(NAD+) Gradient Formation]
+    end
+    
+    subgraph "Molecular → Cellular Coupling"
+        MC1[K^{NAD→enzyme}(x,x') Activation]
+        MC2[Ceramide Synthase Upregulation]
+        MC3[Serine Palmitoyltransferase ↑]
+        MC4[Fatty Acid Synthase Modulation]
+    end
+    
+    subgraph "Microscale: Cellular Response Ψ_{cell}"
+        C1[Keratinocyte Metabolic Shift]
+        C2[↑ Ceramide Production]
+        C3[↑ Free Fatty Acid Synthesis]
+        C4[↑ Cholesterol Biosynthesis]
+        C5[Fibroblast Collagen Expression]
+    end
+    
+    subgraph "Cellular → Tissue Propagation"
+        CT1[𝒯_{up}: Lipid Accumulation]
+        CT2[G^{coupling}_{cell-tissue} Enhancement]
+        CT3[Lamellar Body Density ↑]
+        CT4[Corneocyte Maturation]
+    end
+    
+    subgraph "Macroscale: Tissue Organization"
+        T1[Ξ^{lamellar} Phase Optimization]
+        T2[|LCP⟩ State Stabilization]
+        T3[Lipid Bilayer Ordering]
+        T4[Corneocyte Envelope Fortification]
+    end
+    
+    subgraph "Tissue → Organ Integration"
+        TO1[ℰ^{stratification} Enhancement]
+        TO2[B_{eff} Barrier Strengthening]
+        TO3[∇(H2O) Gradient Normalization]
+    end
+    
+    subgraph "Organ Scale: Emergent Properties"
+        O1[TEWL Reduction: ⟨TEWL⟩ ↓ 30%]
+        O2[Hydration State: a_w ↑]
+        O3[Barrier Recovery: τ_{repair} ↓]
+        O4[Protection Factor: B_{eff} × 1.5]
+    end
+    
+    subgraph "Temporal Evolution"
+        TIME[τ_{NAD} < τ_{lipid} < τ_{barrier} < τ_{clinical}]
+    end
+    
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    N4 --> N5
+    
+    N5 --> MC1
+    MC1 --> MC2
+    MC1 --> MC3
+    MC1 --> MC4
+    
+    MC2 --> C2
+    MC3 --> C3
+    MC4 --> C4
+    N3 --> C1
+    N4 --> C5
+    
+    C2 --> CT1
+    C3 --> CT1
+    C4 --> CT1
+    CT1 --> CT3
+    C1 --> CT4
+    
+    CT3 --> T1
+    CT4 --> T4
+    CT1 --> T2
+    CT1 --> T3
+    
+    T1 --> TO1
+    T2 --> TO2
+    T3 --> TO2
+    T4 --> TO3
+    
+    TO2 --> O1
+    TO3 --> O2
+    TO1 --> O3
+    TO2 --> O4
+    
+    TIME -.->|Constrains| N1
+    TIME -.->|Governs| O1
+    
+    style N1 fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    style T1 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    style O1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

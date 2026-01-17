@@ -1,0 +1,111 @@
+graph TD
+    subgraph "Initial pH Perturbation δ∇(pH)"
+        AHA1[AHA Application: pH 3.5-4.0]
+        AHA2[Glycolic Acid: pKa = 3.83]
+        AHA3[Lactic Acid: pKa = 3.86]
+        AHA4[Local ∇pH Disruption]
+        AHA5[H⁺ Ion Flux Surge]
+    end
+    
+    subgraph "Nanoscale Protonation Dynamics"
+        N1[Desmoglein Protonation]
+        N2[Ca²⁺ Chelation Enhanced]
+        N3[Corneodesmosome Weakening]
+        N4[Enzyme Activation: KLK5/7]
+        N5[τ_{proton} ~ 10⁻³ s]
+    end
+    
+    subgraph "Molecular → Cellular Coupling"
+        MC1[K^{H⁺→Ca²⁺}: Ion exchange]
+        MC2[Osmotic Pressure Δπ]
+        MC3[Cell Volume Perturbation]
+        MC4[Mechanosensor Activation]
+    end
+    
+    subgraph "Microscale Desquamation"
+        D1[Corneocyte Detachment]
+        D2[↓ ρ_{corneocyte} Locally]
+        D3[B_{eff} Transient Decrease]
+        D4[Water Flux J_{H₂O} Increase]
+        D5[τ_{desquamation} ~ 10² s]
+    end
+    
+    subgraph "Cellular Response Ψ_{keratinocyte}"
+        K1[pH Stress Response]
+        K2[↑ NHE1 Expression]
+        K3[↑ Involucrin Production]
+        K4[↑ Filaggrin Processing]
+        K5[Emergency Differentiation]
+    end
+    
+    subgraph "Tissue Reorganization ℰ^{stratification}"
+        T1[Accelerated Stratification]
+        T2[Stratum Corneum Thinning]
+        T3[Granular Layer Thickening]
+        T4[Enhanced Lamellar Body Exocytosis]
+        T5[τ_{tissue} ~ 10⁴ s]
+    end
+    
+    subgraph "Barrier Recovery Dynamics"
+        R1[Lipid Synthesis Surge]
+        R2[Ceramide:Cholesterol:FFA Rebalancing]
+        R3[|LCP⟩ Phase Restoration]
+        R4[B_{eff} Progressive Increase]
+        R5[New Homeostatic State]
+    end
+    
+    subgraph "Observable Transitions"
+        OBS1[Immediate: Stinging (H⁺ nociception)]
+        OBS2[Minutes: Surface pH Drop]
+        OBS3[Hours: Visible Exfoliation]
+        OBS4[Days: Smoothness + Luminosity]
+        OBS5[Weeks: Barrier Enhancement]
+    end
+    
+    AHA1 --> AHA2
+    AHA1 --> AHA3
+    AHA2 --> AHA4
+    AHA3 --> AHA4
+    AHA4 --> AHA5
+    
+    AHA5 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+    
+    N4 --> MC1
+    MC1 --> MC2
+    MC2 --> MC3
+    MC3 --> MC4
+    
+    MC4 --> D1
+    D1 --> D2
+    D2 --> D3
+    D3 --> D4
+    
+    D3 --> K1
+    K1 --> K2
+    K2 --> K3
+    K3 --> K4
+    K4 --> K5
+    
+    K5 --> T1
+    T1 --> T2
+    T1 --> T3
+    T3 --> T4
+    
+    T4 --> R1
+    R1 --> R2
+    R2 --> R3
+    R3 --> R4
+    R4 --> R5
+    
+    AHA5 --> OBS1
+    N1 --> OBS2
+    D1 --> OBS3
+    T2 --> OBS4
+    R4 --> OBS5
+    
+    style AHA1 fill:#ffcdd2,stroke:#d32f2f,stroke-width:3px
+    style MC1 fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style R5 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px

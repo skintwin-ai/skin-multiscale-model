@@ -1,0 +1,96 @@
+graph TB
+    subgraph "Perturbation Space Ξ_{perturbed}"
+        P1[Environmental: UV, ROS, Pollutants]
+        P2[Mechanical: Shear, Compression]
+        P3[Chemical: pH shift, Surfactants]
+        P4[Biological: Microbiome dysbiosis]
+        P5[Formulation: δΞ^{ingredient} injection]
+    end
+    
+    subgraph "Multiscale Gradient Response ∇_{multiscale}"
+        MG1[∇_{nano}: Molecular redistribution]
+        MG2[∇_{micro}: Cellular gradients]
+        MG3[∇_{macro}: Tissue fields]
+        MG4[∇_{organ}: System-wide flux]
+    end
+    
+    subgraph "Biological Constraints 𝒞_{biological}"
+        C1[Energy Conservation: ∫E·dV = const]
+        C2[Mass Balance: ∫ρ·dV = const]
+        C3[Charge Neutrality: ∫q·dV = 0]
+        C4[Phase Coherence: ⟨Ψ|Ψ⟩ = 1]
+    end
+    
+    subgraph "Self-Organization Operator ℱ"
+        F[ℱ: (Ξ_{perturbed}, ∇_{multiscale}, 𝒞_{biological}) →^{t} Ξ_{homeostatic}]
+        F1[Molecular Assembly: V_{assembly}[Ψ,Ψ]]
+        F2[Cellular Coordination: ℰ^{stratification}]
+        F3[Tissue Integration: B̂_{operator}]
+        F4[Temporal Evolution: ∂_t Ξ = ℒ[Ξ]]
+    end
+    
+    subgraph "Emergent Homeostatic Attractors"
+        H1[Ξ_{homeostatic}: Optimal barrier state]
+        H2[ℬ_{barrier}: B_{eff} maximized]
+        H3[𝒮_{structure}: Lamellar organization]
+        H4[𝒯_{turnover}: 28-day cycle maintained]
+    end
+    
+    subgraph "Cross-Scale Feedback Networks"
+        FB1[Molecular → Cellular: K^{nano→micro}]
+        FB2[Cellular → Tissue: G^{coupling}_{nm}]
+        FB3[Tissue → Molecular: 𝒯_{down}]
+        FB4[Microbiome ↔ Host: Ĥ_{interaction}]
+    end
+    
+    subgraph "Observable Homeostatic Metrics"
+        M1[⟨TEWL⟩ = 8-10 g/m²/h]
+        M2[⟨pH⟩_{surface} = 4.7-5.5]
+        M3[⟨a_w⟩_{SC} = 0.7-0.95]
+        M4[⟨B_{eff}⟩ > B_{threshold}]
+    end
+    
+    P1 --> MG1
+    P2 --> MG2
+    P3 --> MG3
+    P4 --> MG4
+    P5 --> MG1
+    
+    MG1 --> F
+    MG2 --> F
+    MG3 --> F
+    MG4 --> F
+    
+    C1 --> F
+    C2 --> F
+    C3 --> F
+    C4 --> F
+    
+    F --> F1
+    F --> F2
+    F --> F3
+    F --> F4
+    
+    F1 --> H3
+    F2 --> H4
+    F3 --> H2
+    F4 --> H1
+    
+    H1 --> FB1
+    H2 --> FB2
+    H3 --> FB3
+    H4 --> FB4
+    
+    FB1 -.->|Maintains| M1
+    FB2 -.->|Regulates| M2
+    FB3 -.->|Optimizes| M3
+    FB4 -.->|Ensures| M4
+    
+    M1 -.->|Feedback| P1
+    M2 -.->|Feedback| P3
+    M3 -.->|Feedback| P5
+    M4 -.->|Feedback| P4
+    
+    style F fill:#e1f5fe,stroke:#0277bd,stroke-width:4px
+    style H1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style FB1 fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px

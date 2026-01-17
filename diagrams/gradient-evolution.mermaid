@@ -1,0 +1,83 @@
+graph TD
+    subgraph "t=0: Initial Gradient State"
+        G0_pH[∇pH: 6.5→4.5<br/>Steep gradient]
+        G0_aw[∇a_w: 0.3→0.9<br/>Disrupted]
+        G0_eps[∇ε: 80→20<br/>Irregular]
+        G0_lip[∇c_{lipid}: Depleted<br/>Discontinuous]
+    end
+    
+    subgraph "t=τ_{molecular}: Molecular Response"
+        G1_pH[pH buffering agents<br/>redistribute]
+        G1_aw[Humectant molecules<br/>aggregate]
+        G1_eps[Dielectric shifts with<br/>water binding]
+        G1_lip[Lipid precursors<br/>begin assembly]
+    end
+    
+    subgraph "t=τ_{cellular}: Cellular Adaptation"
+        G2_pH[Keratinocyte H⁺-ATPase<br/>upregulation]
+        G2_aw[Aquaporin expression<br/>modulation]
+        G2_eps[Tight junction<br/>reorganization]
+        G2_lip[Lamellar body<br/>biogenesis]
+    end
+    
+    subgraph "t=τ_{tissue}: Tissue Reorganization"
+        G3_pH[Stratification pH<br/>zones establish]
+        G3_aw[Water gradient<br/>normalization]
+        G3_eps[Barrier impedance<br/>restoration]
+        G3_lip[Lipid lamellae<br/>continuous]
+    end
+    
+    subgraph "t=τ_{organ}: Steady State"
+        G4_pH[∇pH: 5.5→4.7<br/>Physiologic]
+        G4_aw[∇a_w: 0.7→0.95<br/>Optimized]
+        G4_eps[∇ε: 70→25<br/>Smooth]
+        G4_lip[∇c_{lipid}: Enriched<br/>Organized]
+    end
+    
+    subgraph "Cross-Scale Coupling Events"
+        COUP1[K^{pH→enzyme}: Activates ceramidases]
+        COUP2[J_{a_w→volume}: Cell swelling response]
+        COUP3[G^{ε→junction}: Barrier tightening]
+        COUP4[𝒯_{lipid→phase}: LCP formation]
+    end
+    
+    subgraph "Observable Field Changes"
+        OBS1[∂_t∇pH = D_{H⁺}∇²pH + R_{buffer}]
+        OBS2[∂_t∇a_w = D_{H₂O}∇²a_w + J_{trans}]
+        OBS3[∂_t∇ε = f(a_w, c_{ion})]
+        OBS4[∂_t∇c_{lipid} = D_{lip}∇²c + V_{assembly}]
+    end
+    
+    G0_pH --> G1_pH
+    G0_aw --> G1_aw
+    G0_eps --> G1_eps
+    G0_lip --> G1_lip
+    
+    G1_pH --> COUP1
+    G1_aw --> COUP2
+    G1_eps --> COUP3
+    G1_lip --> COUP4
+    
+    COUP1 --> G2_pH
+    COUP2 --> G2_aw
+    COUP3 --> G2_eps
+    COUP4 --> G2_lip
+    
+    G2_pH --> G3_pH
+    G2_aw --> G3_aw
+    G2_eps --> G3_eps
+    G2_lip --> G3_lip
+    
+    G3_pH --> G4_pH
+    G3_aw --> G4_aw
+    G3_eps --> G4_eps
+    G3_lip --> G4_lip
+    
+    G1_pH --> OBS1
+    G1_aw --> OBS2
+    G1_eps --> OBS3
+    G1_lip --> OBS4
+    
+    style G0_pH fill:#ffcdd2,stroke:#d32f2f
+    style G4_pH fill:#c8e6c9,stroke:#2e7d32
+    style COUP1 fill:#e1f5fe,stroke:#0277bd,stroke-width:3px

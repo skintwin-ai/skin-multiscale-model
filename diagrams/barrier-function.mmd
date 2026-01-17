@@ -1,0 +1,147 @@
+graph TB
+    subgraph "BARRIER FUNCTION EMERGENCE"
+        TITLE[Multiscale Barrier Organization]
+    end
+    
+    subgraph "MOLECULAR COMPONENTS"
+        MC1[Ceramides]
+        MC2[Cholesterol]
+        MC3[Free Fatty Acids]
+        MC4[Filaggrin]
+        MC5[Tight Junction Proteins]
+    end
+    
+    subgraph "LIPID ORGANIZATION"
+        LO1[Lamellar Bilayers]
+        LO2[Liquid Crystalline Phase]
+        LO3[Hexagonal Phase]
+        LO4[Fluid Phase]
+        LO5[Phase Transitions]
+    end
+    
+    subgraph "CELLULAR STRUCTURE"
+        CS1[Corneocyte Envelope]
+        CS2[Keratin Matrix]
+        CS3[Desmosome Remnants]
+        CS4[Lipid Processing]
+        CS5[Protein Cross-linking]
+    end
+    
+    subgraph "TISSUE ARCHITECTURE"
+        TA1[Stratum Corneum Layers]
+        TA2[Brick and Mortar Structure]
+        TA3[Gradient Organization]
+        TA4[Mechanical Integrity]
+        TA5[Selective Permeability]
+    end
+    
+    subgraph "FUNCTIONAL PROPERTIES"
+        FP1[Water Loss Prevention]
+        FP2[Chemical Protection]
+        FP3[Microbial Defense]
+        FP4[Mechanical Resistance]
+        FP5[Sensory Function]
+    end
+    
+    subgraph "REGULATORY MECHANISMS"
+        RM1[Calcium Gradient]
+        RM2[pH Regulation]
+        RM3[Enzyme Activity]
+        RM4[Gene Expression]
+        RM5[Feedback Control]
+    end
+    
+    subgraph "ENVIRONMENTAL FACTORS"
+        EF1[Humidity]
+        EF2[Temperature]
+        EF3[UV Radiation]
+        EF4[Chemical Exposure]
+        EF5[Mechanical Stress]
+    end
+    
+    subgraph "BARRIER DYSFUNCTION"
+        BD1[Lipid Depletion]
+        BD2[Protein Degradation]
+        BD3[Structural Disruption]
+        BD4[Inflammatory Response]
+        BD5[Repair Mechanisms]
+    end
+    
+    %% Molecular to lipid organization
+    MC1 --> LO1
+    MC2 --> LO2
+    MC3 --> LO3
+    MC4 --> CS1
+    MC5 --> CS2
+    
+    %% Lipid organization to cellular structure
+    LO1 --> CS1
+    LO2 --> CS2
+    LO3 --> CS3
+    LO4 --> CS4
+    LO5 --> CS5
+    
+    %% Cellular to tissue architecture
+    CS1 --> TA1
+    CS2 --> TA2
+    CS3 --> TA3
+    CS4 --> TA4
+    CS5 --> TA5
+    
+    %% Tissue to functional properties
+    TA1 --> FP1
+    TA2 --> FP2
+    TA3 --> FP3
+    TA4 --> FP4
+    TA5 --> FP5
+    
+    %% Regulatory mechanisms
+    RM1 --> MC1
+    RM2 --> LO1
+    RM3 --> CS1
+    RM4 --> TA1
+    RM5 --> FP1
+    
+    %% Environmental factors
+    EF1 --> RM1
+    EF2 --> RM2
+    EF3 --> RM3
+    EF4 --> RM4
+    EF5 --> RM5
+    
+    %% Barrier dysfunction
+    EF1 --> BD1
+    EF2 --> BD2
+    EF3 --> BD3
+    BD1 --> BD4
+    BD2 --> BD4
+    BD3 --> BD4
+    BD4 --> BD5
+    BD5 --> RM5
+    
+    %% Feedback loops
+    FP1 --> RM1
+    FP2 --> RM2
+    FP3 --> RM3
+    FP4 --> RM4
+    FP5 --> RM5
+    
+    %% Styling
+    classDef molecular fill:#ffebee,stroke:#c62828,stroke-width:2px
+    classDef lipid fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef cellular fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef tissue fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef functional fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef regulatory fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef environmental fill:#fce4ec,stroke:#ad1457,stroke-width:2px
+    classDef dysfunction fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    
+    class MC1,MC2,MC3,MC4,MC5 molecular
+    class LO1,LO2,LO3,LO4,LO5 lipid
+    class CS1,CS2,CS3,CS4,CS5 cellular
+    class TA1,TA2,TA3,TA4,TA5 tissue
+    class FP1,FP2,FP3,FP4,FP5 functional
+    class RM1,RM2,RM3,RM4,RM5 regulatory
+    class EF1,EF2,EF3,EF4,EF5 environmental
+    class BD1,BD2,BD3,BD4,BD5 dysfunction
+

@@ -1,0 +1,129 @@
+graph TD
+    subgraph "HA Molecular Weight Spectrum"
+        HA1[HMWHA: 1-2 MDa Film Former]
+        HA2[MMWHA: 100-300 kDa Surface]
+        HA3[LMWHA: 10-50 kDa Penetrating]
+        HA4[VLMWHA: <10 kDa Signaling]
+        HA5[Oligomers: 4-6 units Active]
+    end
+    
+    subgraph "Water Binding Dynamics"
+        WB1[1 HA → 1000× H₂O Weight]
+        WB2[Viscoelastic Gel Network]
+        WB3[Dynamic H-bond Exchange]
+        WB4[Compression Resistance]
+        WB5[τ_{hydration} ~ 10¹ s]
+    end
+    
+    subgraph "Receptor Interactions"
+        RI1[CD44 Binding → Signaling]
+        RI2[RHAMM → Migration]
+        RI3[LYVE-1 → Lymphatic]
+        RI4[TLR2/4 → Inflammation]
+        RI5[Size-Dependent Affinity]
+    end
+    
+    subgraph "Cellular Response Ψ_{HA}"
+        CR1[Keratinocyte: ↑ Proliferation]
+        CR2[Fibroblast: ↑ HA Synthesis]
+        CR3[Volume Expansion Effect]
+        CR4[Cell Migration Enhancement]
+        CR5[Differentiation Modulation]
+    end
+    
+    subgraph "ECM Integration"
+        ECM1[Proteoglycan Assembly]
+        ECM2[Collagen Fiber Spacing]
+        ECM3[Water Channel Formation]
+        ECM4[Mechanical Properties Δ]
+        ECM5[∇(turgor) Pressure]
+    end
+    
+    subgraph "Penetration vs MW"
+        PM1[>1 MDa: Surface Film Only]
+        PM2[300 kDa: SC Upper Layers]
+        PM3[50 kDa: Viable Epidermis]
+        PM4[<10 kDa: Dermal Access]
+        PM5[Depot Formation Zones]
+    end
+    
+    subgraph "Tissue Hydration Effects"
+        TH1[↑ Dermal Water Content]
+        TH2[Papillary Dermis Expansion]
+        TH3[DEJ Smoothing Effect]
+        TH4[↓ Trans-epidermal Flux]
+        TH5[a_w Gradient Optimization]
+    end
+    
+    subgraph "Degradation & Turnover"
+        DT1[Hyaluronidase Activity]
+        DT2[ROS-Mediated Cleavage]
+        DT3[Fragment Clearance]
+        DT4[τ_{half-life} ~ 10⁴ s]
+        DT5[Size-Dependent Kinetics]
+    end
+    
+    subgraph "Clinical Manifestations"
+        CM1[Immediate: Surface Hydration]
+        CM2[Hours: Plumping Effect]
+        CM3[Days: Barrier Support]
+        CM4[Weeks: ECM Remodeling]
+        CM5[Sustained: Volume Maintenance]
+    end
+    
+    HA1 --> WB1
+    HA2 --> WB2
+    HA3 --> WB3
+    HA4 --> RI1
+    HA5 --> RI4
+    
+    WB1 --> WB2
+    WB2 --> WB3
+    WB3 --> WB4
+    
+    HA3 --> RI1
+    HA4 --> RI2
+    HA3 --> RI3
+    HA5 --> RI4
+    RI1 --> RI5
+    
+    RI1 --> CR1
+    RI2 --> CR4
+    WB4 --> CR3
+    RI5 --> CR2
+    RI1 --> CR5
+    
+    CR2 --> ECM1
+    WB4 --> ECM2
+    ECM2 --> ECM3
+    ECM3 --> ECM4
+    CR3 --> ECM5
+    
+    HA1 --> PM1
+    HA2 --> PM2
+    HA3 --> PM3
+    HA4 --> PM4
+    PM3 --> PM5
+    
+    ECM3 --> TH1
+    ECM5 --> TH2
+    TH2 --> TH3
+    WB1 --> TH4
+    TH4 --> TH5
+    
+    HA1 --> DT1
+    RI4 --> DT2
+    DT1 --> DT3
+    DT3 --> DT4
+    HA1 --> DT5
+    
+    PM1 --> CM1
+    CR3 --> CM2
+    TH4 --> CM3
+    ECM1 --> CM4
+    TH2 --> CM5
+    
+    style HA1 fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style WB1 fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+    style ECM1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style CM5 fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
