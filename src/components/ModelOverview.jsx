@@ -13,13 +13,12 @@ import {
   Info
 } from 'lucide-react'
 
-// Import visualizations
-import multiscaleOverview from '../assets/visualizations/multiscale_overview.png'
-import tensorFieldDynamics from '../assets/visualizations/tensor_field_dynamics.png'
-import formulationFramework from '../assets/visualizations/formulation_design_framework.png'
-import barrierFunction from '../assets/visualizations/barrier_function_emergence.png'
-import selfOrganization from '../assets/visualizations/self_organization_principles.png'
-import temporalEvolution from '../assets/visualizations/temporal_evolution_cascade.png'
+// Import visualizations (using @assets alias → /visualizations/)
+import multiscaleOverview from '@assets/multiscale_overview.png'
+import tensorFieldDynamics from '@assets/tensor_field_dynamics.png'
+import formulationFramework from '@assets/formulation_design_framework.png'
+import masterFramework from '@assets/master-framework.png'
+import tensorHierarchy from '@assets/tensor-hierarchy.png'
 
 const ModelOverview = ({ activeScale, setActiveScale, scales }) => {
   const visualizations = [
@@ -48,32 +47,24 @@ const ModelOverview = ({ activeScale, setActiveScale, scales }) => {
       details: 'Complete workflow from skin analysis to multiscale integration for formulation optimization.'
     },
     {
-      id: 'barrier',
-      title: 'Barrier Function Emergence',
-      description: 'How barrier properties emerge from multiscale organization',
-      image: barrierFunction,
-      category: 'Mechanisms',
-      details: 'Detailed view of stratum corneum organization and barrier effectiveness calculations.'
+      id: 'master',
+      title: 'Master Framework',
+      description: 'Complete system architecture and tensor hierarchy',
+      image: masterFramework,
+      category: 'Core Framework',
+      details: 'Full system architecture showing all scales, coupling operators, and feedback mechanisms.'
     },
     {
-      id: 'self-org',
-      title: 'Self-Organization Principles',
-      description: 'Homeostatic mechanisms and emergent properties',
-      image: selfOrganization,
-      category: 'Mechanisms',
-      details: 'Four key self-organizing mechanisms: gradients, thresholds, feedback, and attractors.'
-    },
-    {
-      id: 'temporal',
-      title: 'Temporal Evolution',
-      description: 'Cross-scale coupling across different time scales',
-      image: temporalEvolution,
-      category: 'Dynamics',
-      details: 'How perturbations cascade through molecular, cellular, and tissue time scales.'
+      id: 'hierarchy',
+      title: 'Tensor Hierarchy',
+      description: 'Mathematical tensor decomposition across scales',
+      image: tensorHierarchy,
+      category: 'Mathematical Framework',
+      details: 'Detailed view of the tensor decomposition Ξ^{skin}_{αβγ} = Ξ^{mol}_α ⊗ Ξ^{cell}_β ⊗ Ξ^{tiss}_γ.'
     }
   ]
 
-  const categories = ['All', 'Core Framework', 'Mathematical Framework', 'Applications', 'Mechanisms', 'Dynamics']
+  const categories = ['All', 'Core Framework', 'Mathematical Framework', 'Applications']
   const [selectedCategory, setSelectedCategory] = React.useState('All')
   const [selectedVisualization, setSelectedVisualization] = React.useState(null)
 
