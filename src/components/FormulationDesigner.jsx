@@ -13,7 +13,8 @@ import {
   AlertCircle,
   Zap,
   BarChart3,
-  Droplets
+  Droplets,
+  FlaskConical
 } from 'lucide-react'
 
 const FormulationDesigner = ({ parameters, setParameters }) => {
@@ -35,6 +36,7 @@ const FormulationDesigner = ({ parameters, setParameters }) => {
   })
 
   const [optimizationResults, setOptimizationResults] = useState(null)
+  const [stabilityAnalysis, setStabilityAnalysis] = useState(null)
 
   const ingredients = [
     {
@@ -130,12 +132,16 @@ const FormulationDesigner = ({ parameters, setParameters }) => {
   ]
 
   const calculateFormulationScore = () => {
+    return calculateScoreFor(selectedIngredients, formulationGoals)
+  }
+
+  const calculateScoreFor = (ingredientsMap, goals) => {
     let totalScore = 0
     let totalWeight = 0
 
-    Object.entries(formulationGoals).forEach(([goal, weight]) => {
+    Object.entries(goals).forEach(([goal, weight]) => {
       let goalScore = 0
-      Object.entries(selectedIngredients).forEach(([ingredientId, concentration]) => {
+      Object.entries(ingredientsMap).forEach(([ingredientId, concentration]) => {
         const ingredient = ingredients.find(i => i.id === ingredientId)
         if (ingredient) {
           const effect = ingredient.effects[goal] || 0
@@ -150,39 +156,90 @@ const FormulationDesigner = ({ parameters, setParameters }) => {
   }
 
   const optimizeFormulation = () => {
-    // Simulated optimization algorithm
-    const optimized = { ...selectedIngredients }
-    
-    // Simple gradient-based optimization simulation
+    // Work on a local copy so React state is never read mid-loop (async state updates
+    // mean reading selectedIngredients inside setSelectedIngredients callbacks is unsafe).
+    let optimized = { ...selectedIngredients }
+    const oldIngredients = { ...selectedIngredients }
+
     Object.keys(optimized).forEach(ingredientId => {
       const ingredient = ingredients.find(i => i.id === ingredientId)
-      let bestScore = calculateFormulationScore()
+      if (!ingredient) return
+      let bestScore = calculateScoreFor(optimized, formulationGoals)
       let bestConcentration = optimized[ingredientId]
-      
-      // Test different concentrations
+
       for (let conc = 0; conc <= ingredient.maxConcentration; conc += 0.1) {
         const testFormulation = { ...optimized, [ingredientId]: conc }
-        setSelectedIngredients(testFormulation)
-        const score = calculateFormulationScore()
+        const score = calculateScoreFor(testFormulation, formulationGoals)
         if (score > bestScore) {
           bestScore = score
           bestConcentration = conc
         }
       }
-      
+
       optimized[ingredientId] = bestConcentration
     })
 
     setSelectedIngredients(optimized)
     setOptimizationResults({
-      score: calculateFormulationScore(),
+      score: calculateScoreFor(optimized, formulationGoals),
       improvements: Object.keys(optimized).map(id => ({
         ingredient: ingredients.find(i => i.id === id).name,
-        oldConc: selectedIngredients[id],
+        oldConc: oldIngredients[id],
         newConc: optimized[id],
-        change: optimized[id] - selectedIngredients[id]
+        change: optimized[id] - oldIngredients[id]
       }))
     })
+  }
+
+  // Known ingredient interactions that affect stability
+  const incompatibilities = [
+    { a: 'vitamin_c', b: 'retinoid', issue: 'Conflicting pH requirements — Vitamin C needs pH ≤ 3.5; retinoids are unstable at low pH. Separate AM/PM use recommended.' },
+    { a: 'vitamin_c', b: 'niacinamide', issue: 'At extreme concentrations, niacinamide can be converted to niacin by Vitamin C, causing flushing. Use ≤5% niacinamide and ≤10% Vitamin C.' },
+    { a: 'retinoid', b: 'hyaluronic_acid', issue: 'No chemical incompatibility; however, retinoid increases TEWL — using HA simultaneously may be insufficient to offset barrier disruption at high concentrations.' },
+  ]
+
+  // Build a lookup map for O(1) ingredient access in stability analysis
+  const ingredientsById = React.useMemo(
+    () => Object.fromEntries(ingredients.map(i => [i.id, i])),
+    []
+  )
+
+  const runStabilityAnalysis = () => {
+    const issues = []
+    const suggestions = []
+
+    // Check known pairwise incompatibilities
+    incompatibilities.forEach(({ a, b, issue }) => {
+      const concA = selectedIngredients[a] || 0
+      const concB = selectedIngredients[b] || 0
+      if (concA > 0 && concB > 0) {
+        issues.push({ severity: 'warning', text: issue })
+      }
+    })
+
+    // Check for high-irritation combinations
+    const irritants = ['retinoid', 'vitamin_c']
+    const totalIrritancy = irritants.reduce((sum, id) => {
+      const ing = ingredientsById[id]
+      if (!ing) return sum
+      return sum + (selectedIngredients[id] || 0) / ing.maxConcentration
+    }, 0)
+    if (totalIrritancy > 1.0) {
+      issues.push({ severity: 'error', text: 'High combined irritancy: retinoid + Vitamin C both at elevated concentrations. Risk of significant barrier disruption and sensitization.' })
+    }
+
+    // Suggest improvements
+    if ((selectedIngredients.ceramides || 0) === 0) {
+      suggestions.push('Add ceramides (≥0.5%) to reinforce barrier and offset any disruption from actives.')
+    }
+    if ((selectedIngredients.hyaluronic_acid || 0) < 0.5) {
+      suggestions.push('Increase hyaluronic acid to ≥0.5% to maintain hydration, especially if retinoids are used.')
+    }
+    if (issues.length === 0) {
+      suggestions.push('No major compatibility issues detected. This formulation appears stable.')
+    }
+
+    setStabilityAnalysis({ issues, suggestions })
   }
 
   const currentScore = calculateFormulationScore()
@@ -439,8 +496,8 @@ const FormulationDesigner = ({ parameters, setParameters }) => {
               <Zap className="w-4 h-4" />
               <span>Optimize Formulation</span>
             </Button>
-            <Button variant="outline" className="flex items-center space-x-2">
-              <Droplets className="w-4 h-4" />
+            <Button variant="outline" onClick={runStabilityAnalysis} className="flex items-center space-x-2">
+              <FlaskConical className="w-4 h-4" />
               <span>Stability Analysis</span>
             </Button>
           </div>
@@ -462,6 +519,41 @@ const FormulationDesigner = ({ parameters, setParameters }) => {
                   <div key={index} className="text-xs text-green-600 dark:text-green-400">
                     {improvement.ingredient}: {improvement.oldConc.toFixed(1)}% → {improvement.newConc.toFixed(1)}% 
                     ({improvement.change > 0 ? '+' : ''}{improvement.change.toFixed(1)}%)
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {stabilityAnalysis && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 space-y-3"
+            >
+              {stabilityAnalysis.issues.length > 0 && (
+                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 space-y-2">
+                  <h4 className="font-semibold text-amber-800 dark:text-amber-200 flex items-center space-x-2">
+                    <AlertCircle className="w-4 h-4" />
+                    <span>Compatibility Issues</span>
+                  </h4>
+                  {stabilityAnalysis.issues.map((issue, i) => (
+                    <div key={i} className={`text-xs flex items-start space-x-2 ${issue.severity === 'error' ? 'text-red-700 dark:text-red-300' : 'text-amber-700 dark:text-amber-300'}`}>
+                      <span className="mt-0.5 shrink-0">{issue.severity === 'error' ? '⛔' : '⚠️'}</span>
+                      <span>{issue.text}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 space-y-2">
+                <h4 className="font-semibold text-blue-800 dark:text-blue-200 flex items-center space-x-2">
+                  <CheckCircle className="w-4 h-4" />
+                  <span>Suggestions</span>
+                </h4>
+                {stabilityAnalysis.suggestions.map((s, i) => (
+                  <div key={i} className="text-xs text-blue-700 dark:text-blue-300 flex items-start space-x-2">
+                    <span className="mt-0.5 shrink-0">→</span>
+                    <span>{s}</span>
                   </div>
                 ))}
               </div>
