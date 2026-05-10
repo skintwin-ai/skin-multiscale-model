@@ -110,6 +110,42 @@ const ScaleExplorer = ({ activeScale, setActiveScale, scales, parameters }) => {
   const currentScale = scales.find(s => s.id === activeScale)
   const currentData = scaleData[activeScale]
 
+  // Derive cross-scale coupling strength from actual coupling parameters using log-normalised scale.
+  // Each coupling parameter has range 0.01–1.0; log10(value/0.01) / log10(100) maps it to 0–1.
+  const getCouplingStrength = (fromScale, toScale) => {
+    const { molecular_cellular, cellular_tissue, feedback_strength } = parameters.coupling
+    const logNorm = (v, min, max) =>
+      Math.max(0, Math.min(1, Math.log10(v / min) / Math.log10(max / min)))
+
+    const normMC = logNorm(molecular_cellular, 0.01, 1.0)
+    const normCT = logNorm(cellular_tissue, 0.01, 1.0)
+    const normFB = logNorm(feedback_strength, 0.001, 0.1)
+
+    // [upward, downward] coupling for each adjacent scale pair
+    const adjacentCoeffs = [
+      [normMC, normFB * normMC * 0.8],       // molecular ↔ cellular
+      [normCT, normFB * normCT * 0.8],       // cellular ↔ tissue
+      [0.6,   0.3],                           // tissue ↔ organ (fixed moderate)
+    ]
+
+    const scaleOrder = ['molecular', 'cellular', 'tissue', 'organ']
+    const from = scaleOrder.indexOf(fromScale)
+    const to   = scaleOrder.indexOf(toScale)
+    if (from === -1 || to === -1) return 30
+
+    const gap = Math.abs(to - from)
+    const isUpward = to > from
+    const lo = Math.min(from, to)
+
+    let strength = 1.0
+    for (let i = 0; i < gap; i++) {
+      const pair = adjacentCoeffs[lo + i] || [0.3, 0.15]
+      strength *= isUpward ? pair[0] : pair[1]
+    }
+
+    return Math.round(Math.min(100, Math.max(5, strength * 100)))
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -317,7 +353,7 @@ const ScaleExplorer = ({ activeScale, setActiveScale, scales, parameters }) => {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {scales.filter(s => s.id !== activeScale).map((scale) => {
-              const couplingStrength = Math.random() * 100 // Simulated coupling strength
+              const couplingStrength = getCouplingStrength(activeScale, scale.id)
               return (
                 <div key={scale.id} className="space-y-2">
                   <div className="flex items-center justify-between">

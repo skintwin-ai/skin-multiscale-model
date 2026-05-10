@@ -20,6 +20,45 @@ import {
 const ParameterController = ({ parameters, setParameters, scales }) => {
   const [presetName, setPresetName] = useState('')
   const [validationResults, setValidationResults] = useState(null)
+  const fileInputRef = React.useRef(null)
+
+  const saveParameters = () => {
+    const data = JSON.stringify(parameters, null, 2)
+    const blob = new Blob([data], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'skin-model-parameters.json'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
+  const loadParameters = (e) => {
+    const file = e.target.files[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = (ev) => {
+      try {
+        const parsed = JSON.parse(ev.target.result)
+        setParameters(parsed)
+      } catch {
+        alert('Invalid parameter file. Please upload a valid JSON file.')
+      }
+    }
+    reader.readAsText(file)
+    e.target.value = ''
+  }
+
+  const computeStability = () => {
+    const { barrier_strength } = parameters.tissue
+    const { molecular_cellular, cellular_tissue, feedback_strength } = parameters.coupling
+    const totalCoupling = molecular_cellular + cellular_tissue + feedback_strength
+    // High barrier strength and moderate coupling maximise stability
+    const stabilityScore = barrier_strength * 65 + Math.max(0, (0.5 - totalCoupling)) * 50
+    return Math.round(Math.min(100, Math.max(0, stabilityScore)))
+  }
 
   const parameterDefinitions = {
     molecular: {
@@ -330,11 +369,23 @@ const ParameterController = ({ parameters, setParameters, scales }) => {
             </Button>
             
             <div className="flex space-x-2">
-              <Button variant="outline" size="sm" className="flex-1">
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".json"
+                className="hidden"
+                onChange={loadParameters}
+              />
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex-1"
+                onClick={() => fileInputRef.current?.click()}
+              >
                 <Upload className="w-4 h-4 mr-1" />
                 Load
               </Button>
-              <Button variant="outline" size="sm" className="flex-1">
+              <Button variant="outline" size="sm" className="flex-1" onClick={saveParameters}>
                 <Download className="w-4 h-4 mr-1" />
                 Save
               </Button>
@@ -484,7 +535,7 @@ const ParameterController = ({ parameters, setParameters, scales }) => {
               <h4 className="font-semibold">Stability</h4>
               <div className="w-full h-20 bg-gradient-to-r from-green-100 to-green-200 dark:from-green-900 to-green-800 rounded-lg flex items-center justify-center">
                 <div className="text-2xl font-bold text-green-700 dark:text-green-300">
-                  {(Math.random() * 20 + 80).toFixed(0)}%
+                  {computeStability()}%
                 </div>
               </div>
             </div>
