@@ -18,15 +18,19 @@ import {
   Timer,
   Target,
   Beaker,
-  Brain
+  Brain,
+  AlertTriangle,
+  FlaskConical
 } from 'lucide-react'
-import ModelOverview from './components/ModelOverview'
-import ScaleExplorer from './components/ScaleExplorer'
-import TensorFieldVisualizer from './components/TensorFieldVisualizer'
-import FormulationDesigner from './components/FormulationDesigner'
-import ParameterController from './components/ParameterController'
-import TemporalDynamics from './components/TemporalDynamics'
-import './App.css'
+import ModelOverview from './ModelOverview'
+import ScaleExplorer from './ScaleExplorer'
+import TensorFieldVisualizer from './TensorFieldVisualizer'
+import FormulationDesigner from './FormulationDesigner'
+import ParameterController from './ParameterController'
+import TemporalDynamics from './TemporalDynamics'
+import DiseaseModels from './DiseaseModels'
+import ActiveIngredients from './ActiveIngredients'
+import '../App.css'
 
 function App() {
   const [activeScale, setActiveScale] = useState('molecular')
@@ -118,6 +122,16 @@ function App() {
       icon: Brain,
       title: 'Self-Organization',
       description: 'Discover emergent properties and homeostatic mechanisms'
+    },
+    {
+      icon: AlertTriangle,
+      title: 'Disease Models',
+      description: 'Explore tensor representations of skin pathologies'
+    },
+    {
+      icon: FlaskConical,
+      title: 'Active Ingredients',
+      description: 'Multiscale molecular cascades of key skincare actives'
     }
   ]
 
@@ -218,7 +232,7 @@ function App() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <Tabs defaultValue="overview" className="space-y-6">
-                    <TabsList className="grid w-full grid-cols-6">
+                    <TabsList className="grid w-full grid-cols-8">
                       <TabsTrigger value="overview" className="flex items-center space-x-2">
                         <Layers className="w-4 h-4" />
                         <span>Overview</span>
@@ -234,6 +248,14 @@ function App() {
                       <TabsTrigger value="temporal" className="flex items-center space-x-2">
                         <Timer className="w-4 h-4" />
                         <span>Temporal</span>
+                      </TabsTrigger>
+                      <TabsTrigger value="disease" className="flex items-center space-x-2">
+                        <AlertTriangle className="w-4 h-4" />
+                        <span>Disease</span>
+                      </TabsTrigger>
+                      <TabsTrigger value="actives" className="flex items-center space-x-2">
+                        <FlaskConical className="w-4 h-4" />
+                        <span>Actives</span>
                       </TabsTrigger>
                       <TabsTrigger value="formulation" className="flex items-center space-x-2">
                         <Beaker className="w-4 h-4" />
@@ -274,6 +296,14 @@ function App() {
                         parameters={modelParameters}
                         scales={scales}
                       />
+                    </TabsContent>
+
+                    <TabsContent value="disease">
+                      <DiseaseModels />
+                    </TabsContent>
+
+                    <TabsContent value="actives">
+                      <ActiveIngredients />
                     </TabsContent>
 
                     <TabsContent value="formulation">
